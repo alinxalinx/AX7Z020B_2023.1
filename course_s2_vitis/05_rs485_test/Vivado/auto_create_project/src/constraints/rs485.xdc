@@ -1,0 +1,6 @@
+set_property PACKAGE_PIN V12      [get_ports {RS485_1_RXD}]
+set_property IOSTANDARD LVCMOS33 [get_ports {RS485_1_RXD}]
+set_property PACKAGE_PIN W13      [get_ports {RS485_1_TXD}]
+set_property IOSTANDARD LVCMOS33 [get_ports {RS485_1_TXD}]
+set_property PACKAGE_PIN U19      [get_ports {RS485_1_DE_tri_o}]
+set_property IOSTANDARD LVCMOS33 [get_ports {RS485_1_DE_tri_o}]

@@ -1,0 +1,7 @@
+set_property PACKAGE_PIN E17 [get_ports Vaux1_v_p]
+set_property IOSTANDARD LVCMOS33 [get_ports Vaux1_v_n]
+set_property IOSTANDARD LVCMOS33 [get_ports Vaux1_v_p]
+set_property IOSTANDARD LVCMOS33 [get_ports Vaux9_v_n]
+set_property IOSTANDARD LVCMOS33 [get_ports Vaux9_v_p]
+set_property IOSTANDARD LVCMOS33 [get_ports Vaux12_v_n]
+set_property IOSTANDARD LVCMOS33 [get_ports Vaux12_v_p]

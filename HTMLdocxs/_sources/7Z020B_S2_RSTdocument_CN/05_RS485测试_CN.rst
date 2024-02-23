@@ -1,0 +1,136 @@
+RS485测试
+===========
+
+本章介绍两路RS485接口的读写测试实验。
+
+硬件环境搭建
+------------
+
+基于”ps_hello”工程，另存为一份rs485_test工程
+
+1. 第一路RS485用的是PS端的UART0，而DE信号用的是MIO9，GPIO MIO已经勾选上。
+
+.. image:: images/05_media/image1.png
+      
+配置时钟频率为100MHz
+
+.. image:: images/05_media/image2.png
+      
+打开PL端中断
+
+.. image:: images/05_media/image3.png
+      
+2. 添加AXI GPIO模块，并配置为输出，位宽为1，用于第二路RS485的DE控制
+
+.. image:: images/05_media/image4.png
+      
+3. 添加UART16550模块，用于第二路RS485的数据端口
+
+.. image:: images/05_media/image5.png
+      
+4. 自动连接
+
+.. image:: images/05_media/image6.png
+      
+.. image:: images/05_media/image7.png
+      
+5. 删除UART引脚，并展开UART接口
+
+|image1|\ |image2|
+
+6. 添加constant模块，并设置位宽为1，值为1
+
+.. image:: images/05_media/image10.png
+      
+7. 连接ctsn，rin信号
+
+.. image:: images/05_media/image11.png
+      
+8. 再添加一个constant模块，值设置为0
+
+.. image:: images/05_media/image12.png
+      
+9. 连接freeze，dcdn，dsrn信号
+
+.. image:: images/05_media/image13.png
+      
+10. 将sin和sout导出引脚
+
+.. image:: images/05_media/image14.png
+      
+11. 连接中断信号到ZYNQ的IRQ_F2P接口
+
+.. image:: images/05_media/image15.png
+      
+12. 修改引脚名称
+
+.. image:: images/05_media/image16.png
+      
+13. 引脚绑定
+
+.. image:: images/05_media/image17.png
+      
+14. 生成bitstream
+
+.. image:: images/05_media/image18.png
+      
+15. 导出硬件平台信息
+
+.. image:: images/05_media/image19.png
+         
+Vitis程序开发
+-------------
+
+1. 新建Vitis工程rs485_test，本实验是根据UART和UART16550模块的example工程修改而来，程序流程为，初始化RS485 DE和UART设置RS485 0为发送，设置RS485 1为接收，发送16个字节数据，接收后进行数据对比反向，设置RS485 1为发送，设置RS485 0为接收，发送16个字节数据，接收后进行数据对比程序结束
+
+.. image:: images/05_media/image20.png
+      
+2. 注意要进行BSP的设置，将打印输入输出改成ps7_uart_1，也就是PS端的UART
+
+.. image:: images/05_media/image21.png
+      
+.. image:: images/05_media/image22.png
+      
+3. PS端GPIO设置MIO9为输出，因为它是连接在RS485 0的DE上的。
+
+.. image:: images/05_media/image23.png
+      
+4. PL端GPIO设置，连接到RS485 1的DE
+
+.. image:: images/05_media/image24.png
+      
+5. 在对UART初始化中，将PS端UART和PL端UART16550都设置为波特率115200，8bit，无奇偶校验位，1bit停止位
+
+.. image:: images/05_media/image25.png
+      
+6. 在回环的函数中，首先是将RS485_0设置为输出，RS485_1设置为输入，设置完后，在发送数据之前等待1ms时间，是因为有切换延迟。
+
+.. image:: images/05_media/image26.png
+      
+1. 测试后，切换方向RS485_0设置为输入，RS485_1设置为输出，再次进行数据发送
+
+.. image:: images/05_media/image27.png
+      
+板上验证
+--------
+
+1. 用杜邦线将A1与A2连接，B1与B2连接如下：
+
+.. image:: images/05_media/image28.png
+      
+2. 下载界面设置
+
+.. image:: images/05_media/image29.png
+      
+3. 串口打印信息
+
+.. image:: images/05_media/image30.png
+      
+本章小结
+--------
+
+本章介绍了利用板子上的两路RS485进行回环测试，大家可以在此基础上功能扩展进行测试。
+
+.. |image1| image:: images/05_media/image8.png
+.. |image2| image:: images/05_media/image9.png
+      

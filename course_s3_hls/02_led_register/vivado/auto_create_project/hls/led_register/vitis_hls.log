@@ -1,0 +1,99 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.1 (64-bit)
+  **** SW Build 3854077 on May  4 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source /home/alinx/Xilinx/Vitis_HLS/2023.1/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running '/home/alinx/Xilinx/Vitis_HLS/2023.1/bin/unwrapped/lnx64.o/vitis_hls'
+INFO: [HLS 200-10] For user 'alinx' on host 'alinx-System-Product-Name' (Linux_x86_64 version 5.4.0-164-generic) on Tue Nov 14 11:19:50 CST 2023
+INFO: [HLS 200-10] On os Ubuntu 20.04.6 LTS
+INFO: [HLS 200-10] In directory '/media/alinx/nvme4t/yang/course_s3_tcl/ax7z020/02_led_register/vivado/auto_create_project/hls/led_register'
+Sourcing Tcl script 'run_hls.tcl'
+INFO: [HLS 200-1510] Running: open_project led_register 
+INFO: [HLS 200-10] Creating and opening project '/media/alinx/nvme4t/yang/course_s3_tcl/ax7z020/02_led_register/vivado/auto_create_project/hls/led_register/led_register'.
+INFO: [HLS 200-1510] Running: set_top led_register 
+INFO: [HLS 200-1510] Running: add_files source/led_register.cpp 
+INFO: [HLS 200-10] Adding design file 'source/led_register.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution solution1 -flow_target vivado 
+INFO: [HLS 200-10] Creating and opening solution '/media/alinx/nvme4t/yang/course_s3_tcl/ax7z020/02_led_register/vivado/auto_create_project/hls/led_register/led_register/solution1'.
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2023.1;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1510] Running: set_part xc7z020clg484-2 
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg484-2'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 1.336 GB.
+INFO: [HLS 200-10] Analyzing design file 'source/led_register.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 1.29 seconds. CPU system time: 0.41 seconds. Elapsed time: 1.68 seconds; current allocated memory: 1.337 GB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 83 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /media/alinx/nvme4t/yang/course_s3_tcl/ax7z020/02_led_register/vivado/auto_create_project/hls/led_register/led_register/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 26 instructions in the design after the 'Unroll/Inline' phase of compilation. See the Design Size Report for more details: /media/alinx/nvme4t/yang/course_s3_tcl/ax7z020/02_led_register/vivado/auto_create_project/hls/led_register/led_register/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 22 instructions in the design after the 'Performance/Pipeline' phase of compilation. See the Design Size Report for more details: /media/alinx/nvme4t/yang/course_s3_tcl/ax7z020/02_led_register/vivado/auto_create_project/hls/led_register/led_register/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 29 instructions in the design after the 'Optimizations' phase of compilation. See the Design Size Report for more details: /media/alinx/nvme4t/yang/course_s3_tcl/ax7z020/02_led_register/vivado/auto_create_project/hls/led_register/led_register/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 1.23 seconds. CPU system time: 0.38 seconds. Elapsed time: 6.52 seconds; current allocated memory: 1.338 GB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 1.338 GB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 1.339 GB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 1.339 GB.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_10_1' (source/led_register.cpp:10) in function 'led_register' automatically.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 1.359 GB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 1.359 GB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'led_register' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'led_register' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_10_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 1, loop 'VITIS_LOOP_10_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.06 seconds; current allocated memory: 1.359 GB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 1.359 GB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'led_register' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'led_register/led' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'led' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'led_register/total_cnt' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'led_register/high_cnt' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'led_register' to 'ap_ctrl_none'.
+INFO: [RTGEN 206-100] Bundling port 'total_cnt' and 'high_cnt' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'led_register'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 1.359 GB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 1.359 GB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 1.359 GB.
+INFO: [VHDL 208-304] Generating VHDL RTL for led_register.
+INFO: [VLOG 209-307] Generating Verilog RTL for led_register.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 250.38 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 2.82 seconds. CPU system time: 0.84 seconds. Elapsed time: 8.57 seconds; current allocated memory: 23.617 MB.
+INFO: [HLS 200-1510] Running: export_design -rtl verilog -format ip_catalog 
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2023.1 (64-bit)
+  **** SW Build 3865809 on Sun May  7 15:04:56 MDT 2023
+  **** IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+  **** SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+Sourcing tcl script '/home/alinx/Xilinx/Vivado/2023.1/scripts/Vivado_init.tcl'
+445 Beta devices matching pattern found, 56 enabled.
+source run_ippack.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/alinx/Xilinx/Vivado/2023.1/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Tue Nov 14 11:20:07 2023...
+INFO: [HLS 200-802] Generated output file led_register/solution1/impl/export.zip
+INFO: [HLS 200-111] Finished Command export_design CPU user time: 7.14 seconds. CPU system time: 0.59 seconds. Elapsed time: 10.21 seconds; current allocated memory: 2.691 MB.

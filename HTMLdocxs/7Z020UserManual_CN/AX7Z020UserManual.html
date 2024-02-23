@@ -1,0 +1,3353 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>开发板简介 &#8212; ZYNQ 7000开发平台FPGA教程 1.0 文档</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/translations.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '7Z020UserManual_CN/AX7Z020UserManual';</script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="软件包说明和开发板检测" href="../7Z020B_S1_RSTdocument_CN/01_%E8%BD%AF%E4%BB%B6%E5%8C%85%E8%AF%B4%E6%98%8E%E5%92%8C%E5%BC%80%E5%8F%91%E6%9D%BF%E6%A3%80%E6%B5%8B_CN.html" />
+    <link rel="prev" title="文档版本履历" href="../7Z020B_S1_RSTdocument_CN/00_%E6%96%87%E6%A1%A3%E7%89%88%E6%9C%AC%E5%B1%A5%E5%8E%86_CN.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/8.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/8.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    ZYNQ 7000 开发平台
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">公司简介</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S1_RSTdocument_CN/00_%E5%85%B3%E4%BA%8EALINX_CN.html">关于ALINX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S1_RSTdocument_CN/00_%E5%BA%8F_CN.html">序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S1_RSTdocument_CN/00_%E6%96%87%E6%A1%A3%E7%89%88%E6%9C%AC%E5%B1%A5%E5%8E%86_CN.html">文档版本履历</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">用户手册</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">开发板简介</a></li>
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">AX7Z020B型号板卡S1_FPGA教程</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S1_RSTdocument_CN/01_%E8%BD%AF%E4%BB%B6%E5%8C%85%E8%AF%B4%E6%98%8E%E5%92%8C%E5%BC%80%E5%8F%91%E6%9D%BF%E6%A3%80%E6%B5%8B_CN.html">软件包说明和开发板检测</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S1_RSTdocument_CN/02_ZYNQ%E7%AE%80%E4%BB%8B_CN.html">ZYNQ简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S1_RSTdocument_CN/03_Vivado%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83_CN.html">Vivado开发环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S1_RSTdocument_CN/04_PL%E7%9A%84LED%E5%AE%9E%E9%AA%8C_CN.html">PL的“Hello World”LED实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S1_RSTdocument_CN/05_HDMI%E8%BE%93%E5%87%BA%E5%AE%9E%E9%AA%8C_CN.html">HDMI输出实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S1_RSTdocument_CN/06_%E4%BD%93%E9%AA%8CARM%E8%BE%93%E5%87%BAHello%20World_CN.html">体验ARM，裸机输出“Hello World”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S1_RSTdocument_CN/07_PS%E5%AE%9A%E6%97%B6%E5%99%A8%E4%B8%AD%E6%96%AD%E5%AE%9E%E9%AA%8C_CN.html">PS定时器中断实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S1_RSTdocument_CN/08_PS%E7%AB%AFMIO%E7%9A%84%E4%BD%BF%E7%94%A8_CN.html">PS端MIO的使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S1_RSTdocument_CN/09_PS%E7%AB%AFEMIO%E7%9A%84%E4%BD%BF%E7%94%A8_CN.html">PS端EMIO的使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S1_RSTdocument_CN/10_PL%E7%AB%AFAXI%20GPIO%E7%9A%84%E4%BD%BF%E7%94%A8_CN.html">PL端AXI GPIO的使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S1_RSTdocument_CN/11_%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%AE%9E%E9%AA%8C_CN.html">以太网实验（LWIP）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S1_RSTdocument_CN/12_%E8%87%AA%E5%AE%9A%E4%B9%89IP%E5%AE%9E%E9%AA%8C_CN.html">自定义IP实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S1_RSTdocument_CN/13_%E4%BD%BF%E7%94%A8VDMA%E9%A9%B1%E5%8A%A8HDMI%E6%98%BE%E7%A4%BA_CN.html">使用VDMA驱动HDMI显示</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">AX7Z020B型号板卡S2_Vitis教程</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/00_%E5%89%8D%E8%A8%80_CN.html">前言</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/00_%E5%87%86%E5%A4%87%E5%B7%A5%E7%A8%8B%E5%8F%8A%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9_CN.html">准备工程及注意事项</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/01_PS%E7%AB%AFUART%E8%AF%BB%E5%86%99%E6%8E%A7%E5%88%B6_CN.html">PS端UART读写控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/02_XADC%E7%9A%84%E4%BD%BF%E7%94%A8_CN.html">XADC的使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/03_I2C%E7%9A%84%E8%AF%BB%E5%86%99_CN.html">I2C的读写</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/04_CAN%E6%80%BB%E7%BA%BF%E8%AF%BB%E5%86%99_CN.html">CAN总线读写</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/05_RS485%E6%B5%8B%E8%AF%95_CN.html">RS485测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/06_PL%E8%AF%BB%E5%86%99PS%E7%AB%AFDDR%E6%95%B0%E6%8D%AE_CN.html">PL读写PS端DDR数据</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/07_%E9%80%9A%E8%BF%87BRAM%E5%AE%9E%E7%8E%B0PS%E4%B8%8EPL%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92_CN.html">通过BRAM实现PS与PL数据交互</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/08_%E5%8F%8C%E6%A0%B8AMP%E7%9A%84%E4%BD%BF%E7%94%A8_CN.html">双核AMP的使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/09_ZYNQ%E4%B8%8B%E4%BD%BF%E7%94%A8Free%20RTOS_CN.html">ZYNQ下使用Free RTOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/10_DMA%E7%8E%AF%E9%80%9A%E6%B5%8B%E8%AF%95_CN.html">DMA环通测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/11_DMA%E4%BD%BF%E7%94%A8%E4%B9%8BDAC%E6%B3%A2%E5%BD%A2%E5%8F%91%E7%94%9F%E5%99%A8_CN.html">DMA使用之DAC波形发生器(AN108)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/12_DMA%E4%BD%BF%E7%94%A8%E4%B9%8BADC%E7%A4%BA%E6%B3%A2%E5%99%A8_CN.html">DMA使用之ADC示波器(AN108)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/13_DMA%E4%BD%BF%E7%94%A8%E4%B9%8BADC%E7%A4%BA%E6%B3%A2%E5%99%A8_CN.html">DMA使用之ADC示波器(AN9238)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/14_DMA%E4%BD%BF%E7%94%A8%E4%B9%8BADC%E7%A4%BA%E6%B3%A2%E5%99%A8_CN.html">DMA使用之ADC示波器（AN706）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/15_%E5%9F%BA%E4%BA%8EADC%E6%A8%A1%E5%9D%97%E7%9A%84Scatter_CN.html">基于ADC模块的Scatter/Gather DMA使用(AN108)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/16_%E5%9F%BA%E4%BA%8EDAC%E6%A8%A1%E5%9D%97%E7%9A%84Scatter_CN.html">基于DAC模块的Scatter/Gather DMA使用（AN9767）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/17_OV5640%E6%91%84%E5%83%8F%E5%A4%B4%E7%9A%84%E9%87%87%E9%9B%86%E6%98%BE%E7%A4%BA%E4%B8%80_CN.html">OV5640摄像头的采集显示一</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/18_OV5640%E6%91%84%E5%83%8F%E5%A4%B4%E7%9A%84%E9%87%87%E9%9B%86%E6%98%BE%E7%A4%BA%E4%BA%8C_CN.html">OV5640摄像头的采集显示二</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/19_%E5%8F%8C%E7%9B%AE%E6%91%84%E5%83%8F%E5%A4%B4%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BC%A0%E8%BE%93_CN.html">双目摄像头以太网传输</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/20_SD%E5%8D%A1%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C%E4%B9%8BBMP%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA_CN.html">SD卡读写操作之BMP图片显示</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/21_SD%E5%8D%A1%E8%AF%BB%E5%86%99%E6%93%8D%E4%BD%9C%E4%B9%8B%E6%91%84%E5%83%8F%E5%A4%B4%E6%8A%93%E6%8B%8D_CN.html">SD卡读写操作之摄像头抓拍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/22_%E5%9F%BA%E4%BA%8EAN5641%E6%A8%A1%E5%9D%97%E7%9A%84MIPI%E9%87%87%E9%9B%86%E6%98%BE%E7%A4%BA_CN.html">基于AN5641模块的MIPI采集显示</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/23_%E9%9F%B3%E9%A2%91%E6%A8%A1%E5%9D%97AN831%E7%9A%84%E5%BD%95%E9%9F%B3%E4%B8%8E%E6%92%AD%E6%94%BE_CN.html">音频模块AN831的录音与播放</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/24_7%E5%AF%B8%E8%A7%A6%E6%91%B8%E5%B1%8F%E6%A8%A1%E5%9D%97%E7%9A%84%E6%98%BE%E7%A4%BA_CN.html">7寸触摸屏模块的显示</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/25_7%E5%AF%B8%E8%A7%A6%E6%91%B8%E5%B1%8F%E7%9A%84GUI%E5%8F%8A%E8%A7%A6%E6%91%B8%E6%8E%A7%E5%88%B6_CN.html">7寸触摸屏的GUI及触摸控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/26_%E5%9F%BA%E4%BA%8EAN108%E6%A8%A1%E5%9D%97%E7%9A%84ADC%E9%87%87%E9%9B%86%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BC%A0%E8%BE%93_CN.html">基于AN108模块的ADC采集以太网传输</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/27_%E5%9F%BA%E4%BA%8EAN9238%E6%A8%A1%E5%9D%97%E7%9A%84ADC%E9%87%87%E9%9B%86%E4%B9%8B%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BC%A0%E8%BE%93_CN.html">基于AN9238模块的ADC采集之以太网传输</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/28_%E5%9F%BA%E4%BA%8EAN706%E6%A8%A1%E5%9D%97%E7%9A%84ADC%E9%87%87%E9%9B%86%E4%B9%8B%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BC%A0%E8%BE%93_CN.html">基于AN706模块的ADC采集之以太网传输</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S2_RSTdocument_CN/29_%E5%9F%BA%E4%BA%8EUDP%20TCP%E7%9A%84%E8%BF%9C%E7%A8%8B%E6%9B%B4%E6%96%B0_CN.html">基于UDP/TCP的远程更新QSPI Flash</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">AX7Z020B型号板卡S3_HLS教程</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S3_RSTdocument_CN/01_led_control_CN.html">初识HLS</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S3_RSTdocument_CN/02_led_register_CN.html">状态指示led</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S3_RSTdocument_CN/03_average_float_CN.html">浮点协处理</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S3_RSTdocument_CN/04_colorbar_CN.html">视频彩条</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S3_RSTdocument_CN/05_video_show_CN.html">视频帧缓存读写管理</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S3_RSTdocument_CN/06_contrast_adj_CN.html">图像对比度调整</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S3_RSTdocument_CN/07_auto_focus_CN.html">自动聚焦</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S3_RSTdocument_CN/08_edge_detector_CN.html">边缘检测</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S3_RSTdocument_CN/09_dual_corner_CN.html">角点检测</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">AX7Z020B型号板卡S4_LINUX教程</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S4_RSTdocument_CN/01_%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%92%8CUbuntu%E7%B3%BB%E7%BB%9F_CN.html">安装虚拟机和Ubuntu系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S4_RSTdocument_CN/02_Ubuntu%E5%AE%89%E8%A3%85Linux%E7%89%88Vitis%E8%BD%AF%E4%BB%B6_CN.html">Ubuntu安装Linux版Vitis软件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S4_RSTdocument_CN/03_Petalinux%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85_CN.html">Petalinux工具安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S4_RSTdocument_CN/04_NFS%E6%9C%8D%E5%8A%A1%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85_CN.html">NFS服务软件安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S4_RSTdocument_CN/05_%E4%BD%BF%E7%94%A8Petalinux%E5%AE%9A%E5%88%B6Linux%E7%B3%BB%E7%BB%9F_CN.html">使用Petalinux定制Linux系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S4_RSTdocument_CN/06_%E4%BD%BF%E7%94%A8Vitis%E5%BC%80%E5%8F%91Linux%E7%A8%8B%E5%BA%8F_CN.html">使用Vitis开发Linux程序</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S4_RSTdocument_CN/07_Linux%E4%B8%8BGPIO%E5%AE%9E%E9%AA%8C_CN.html">Linux下GPIO实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S4_RSTdocument_CN/08_Petalinux%E4%B8%8B%E7%9A%84HDMI%E6%98%BE%E7%A4%BA_CN.html">Petalinux下的HDMI显示</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S4_RSTdocument_CN/09_%E4%BD%BF%E7%94%A8Debian%E6%A1%8C%E9%9D%A2%E7%B3%BB%E7%BB%9F_CN.html">使用Debian桌面系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S4_RSTdocument_CN/10_%E5%88%B6%E4%BD%9CQSPI%20Flash%E5%90%AF%E5%8A%A8%E7%9A%84Linux_CN.html">制作QSPI Flash启动的Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S4_RSTdocument_CN/11_QT%E5%9C%A8ZYNQ%E4%B8%8A%E7%9A%84%E5%BA%94%E7%94%A8_CN.html">QT在ZYNQ上的应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S4_RSTdocument_CN/12_OpenCV%E5%BA%94%E7%94%A8_CN.html">OpenCV应用（USB摄像头显示）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S4_RSTdocument_CN/13_%E5%8F%8C%E7%9B%AE%E6%91%84%E5%83%8F%E5%A4%B4%E6%A8%A1%E5%9D%97OpenCV%E6%98%BE%E7%A4%BA_CN.html">双目摄像头模块OpenCV显示</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S4_RSTdocument_CN/14_%E8%A7%A6%E6%91%B8%E5%B1%8F%E6%A8%A1%E5%9D%97%E5%BA%94%E7%94%A8_CN.html">触摸屏模块应用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S4_RSTdocument_CN/15_AXI%20DMA%E8%AF%BB%E5%86%99%E6%B5%8B%E8%AF%95_CN.html">AXI DMA读写测试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S4_RSTdocument_CN/16_%E5%9F%BA%E4%BA%8EDMA%E7%9A%84ADC%E6%B3%A2%E5%BD%A2%E6%98%BE%E7%A4%BAAN9238_CN.html">基于DMA的ADC波形显示（AN9238）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S4_RSTdocument_CN/17_%E5%9F%BA%E4%BA%8EDMA%E7%9A%84ADC%E6%B3%A2%E5%BD%A2%E6%98%BE%E7%A4%BAAN706_CN.html">基于DMA的ADC波形显示（AN706）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S4_RSTdocument_CN/18_%E8%87%AA%E5%8A%A8%E8%BF%90%E8%A1%8C%E7%9A%84petalinux%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F_CN.html">自动运行的petalinux应用程序</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alinx版权</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../7Z020B_S1_RSTdocument_CN/00_%E8%B4%A3%E4%BB%BB%E5%A3%B0%E6%98%8E_CN.html">版权说明</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/alinxalinx/AX7Z020B_2023.1" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="下载此页面">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/7Z020UserManual_CN/AX7Z020UserManual.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="下载源文件"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="列印成 PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>开发板简介</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">开发板简介</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ac7z020">AC7Z020核心板</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">简介</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zynq">ZYNQ芯片</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ddr3-dram">DDR3 DRAM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qspi-flash">QSPI Flash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">时钟配置</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">电源</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">结构图</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">连接器管脚定义</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">扩展板</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">简介</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#can">CAN通信接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">485通信接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">千兆以太网接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usb2-0-host">USB2.0 Host接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usb">USB转串口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ad">AD输入接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hdmi">HDMI输出接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mipi">MIPI摄像头接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sd">SD卡槽</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eeprom">EEPROM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">实时时钟</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">温度传感器</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jtag">JTAG接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#led">用户LED灯</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">用户按键</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">扩展口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">供电电源</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">底板结构图</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p> 芯驿电子科技（上海）有限公司 基于XILINX
+ZYNQ7000开发平台的开发板（型号：
+AX7Z020）2019款正式发布了，为了让您对此开发平台可以快速了解，我们编写了此用户手册。</p>
+<p>这款ZYNQ7000
+FPGA开发平台采用核心板加扩展板的模式，方便用户对核心板的二次开发利用。核心板使用XILINX的Zynq7000
+SOC 芯片的解决方案，它采用ARM+FPGA SOC技术将双核ARM Cortex-A9 和FPGA
+可编程逻辑集成在一颗芯片上。另外核心板上含有2片共1GB高速DDR3
+SDRAM芯片和1片256Mb的QSPI FLASH芯片。</p>
+<p>在底板设计上我们为用户扩展了丰富的外围接口，比如2路CAN通信接口，2路485通信接口，2路XADC输入接口，
+1路千兆以太网接口，1路USB2.0
+HOST接口，1路HDMI输出接口，Uart通信接口，SD卡座，40针扩展接口等等。满足用户各种以太网高速数据交换，数据存储，视频传输处理以及工业控制的要求，是一款”专业级“的ZYNQ开发平台。为高速以太网数据传输和交换，数据处理的前期验证和后期应用提供了可能。相信这样的一款产品非常适合从事ZYNQ开发的学生、工程师等群体。</p>
+<a class="reference internal image-reference" href="../_images/image2164.png"><img alt="../_images/image2164.png" src="../_images/image2164.png" style="width: 6.76181in; height: 4.99931in;" /></a>
+<section id="id1">
+<h1>开发板简介<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h1>
+<p>在这里，对这款AX7Z020 ZYNQ开发平台进行简单的功能介绍。</p>
+<p>开发板的整个结构，继承了我们一贯的核心板+扩展板的模式来设计的。核心板和扩展板之间使用高速板间连接器连接。</p>
+<p>核心板主要由XC7Z020 + 2个DDR3 + QSPI
+FLASH的最小系统构成，承担ZYNQ系统的高速数据处理和存储的功能，
+ZYNQ7020和两片DDR3之间的数据位宽为32位，两片DDR3容量高达1GB。ZYNQ7020
+采用Xilinx公司的Zynq7000系列的芯片，型号为XC7Z020-2CLG400I。ZYNQ7020芯片可分成处理器系统部分Processor
+System（PS）和可编程逻辑部分Programmable Logic（PL）。</p>
+<p>底板为核心板扩展了丰富的外围接口，其中包含1路千兆以太网接口、1路USB2.0
+HOST接口、1路HDMI输出接口、1路SD Card接口、1路UART
+USB接口、1路SD卡接口、1路MIPI接口、2路CAN总线接口、2路RS485总线接口、2路AD输入接口、2路40针的扩展口和一些按键LED。</p>
+<p>下图为整个开发系统的结构示意图：</p>
+<img alt="../_images/image3140.png" src="../_images/image3140.png" />
+<p>通过这个示意图，我们可以看到，我们这个开发平台所能含有的接口和功能。</p>
+<ul class="simple">
+<li><p> ZYNQ7000核心板</p></li>
+</ul>
+<p>由XC7Z020+1GB DDR3 + 256Mb QSPI
+FLASH组成，另外有33.333333MHz晶振提供时钟提供给PS系统。</p>
+<ul class="simple">
+<li><p>CAN通信接口</p></li>
+</ul>
+<p>2路CAN总线接口，选用TI公司的SN65HVD232芯片。</p>
+<ul class="simple">
+<li><p>485通信接口</p></li>
+</ul>
+<p>2路485通信接口，选用MAXIM公司的MAX3485芯片。</p>
+<ul class="simple">
+<li><p>千兆以太网接口</p></li>
+</ul>
+<p>1路10/100M/1000M以太网RJ45接口，用于和电脑或其它网络设备进行以太网数据交换。网络接口芯片采用Micrel公司的KSZ9031工业级GPHY芯片。</p>
+<ul class="simple">
+<li><p>一路高速USB2.0 HOST接口, 可用于开发板连接鼠标、键盘和U盘等USB外设;</p></li>
+<li><p>USB Uart接口</p></li>
+</ul>
+<p>1路Uart转USB接口，用于和电脑通信，方便用户调试。串口芯片采用Silicon Labs
+CP2102GM的USB-UAR芯片, USB接口采用MINI USB接口。</p>
+<ul class="simple">
+<li><p>Micro SD卡座</p></li>
+</ul>
+<p>1路Micro SD卡座，用于存储操作系统镜像和文件系统。</p>
+<ul class="simple">
+<li><p>AD模拟输入接口</p></li>
+</ul>
+<p>2路AD模拟输入接口，可用于模拟信号的输入和电压转换，SMA接口形式。模拟信号电压输入范围为0~10V（不要输入超过这个范围的电压）。</p>
+<ul class="simple">
+<li><p>一路HDMI 图像视频输出接口, 能实现1080P的视频图像传输；</p></li>
+<li><p>一片IIC接口的EEPROM 24LC04;</p></li>
+<li><p>板载一片温度传感器芯片LM75，用于检测板子周围环境的温度。</p></li>
+<li><p>一路MIPI摄像头接口，可以连接黑金MIPI接口的OV5640摄像头。</p></li>
+<li><p>1个JTAG调试接口。</p></li>
+<li><p>40针扩展口</p></li>
+</ul>
+<p>2个40针2.54mm间距的扩展口，可以外接黑金的各种模块（双目摄像头，TFT
+LCD屏，高速AD模块等等）。扩展口包含5V电源1路，3.3V电源2路，地3路，IO口34路。</p>
+<ul class="simple">
+<li><p>LED灯</p></li>
+</ul>
+<p>7个发光二极管LED,
+核心板上6个，底板上1个。核心板上1个电源指示灯；底板上有1个电源指示灯，1个DONE配置指示灯；4个用户指示灯。</p>
+<ul class="simple">
+<li><p>4个用户按键在底板上。</p></li>
+</ul>
+</section>
+<section id="ac7z020">
+<h1>AC7Z020核心板<a class="headerlink" href="#ac7z020" title="此标题的永久链接">#</a></h1>
+<section id="id2">
+<h2>简介<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
+<p>AC7Z020(<strong>核心板型号，下同</strong>)核心板，ZYNQ芯片是基于XILINX公司的ZYNQ7000系列的XC7Z020-2CLG400I。ZYNQ芯片的PS系统集成了两个ARM
+Cortex™-A9处理器，AMBA®互连，内部存储器，外部存储器接口和外设。ZYNQ芯片的FPGA内部含有丰富的可编程逻辑单元，DSP和内部RAM。</p>
+<blockquote>
+<div><p>这款核心板使用了2片Micron公司的MT41K256M16TW-107这款DDR3芯片，每片DDR的容量为512MB；2片DDR芯片组合成32bit的数据总线宽度，ZYNQ和DDR3之间的读写数据时钟频率高达533Mhz；这样的配置，可以满足系统的高带宽的数据处理的需求。</p>
+<p>为了和底板连接，这款核心板的2个板对板连接器扩展出了PS端的USB接口，千兆以太网接口，SD卡接口及其它剩余的MIO口。以及PL端的BANK13,
+BAN34和BANK35的几乎所有IO口（122个），其中BANK34和BANK35的IO的电平可以通过更换核心板上的LDO芯片来修改，满足用户不同电平接口的要求。对于需要大量IO的用户，此核心板将是不错的选择。而且IO连接部分，ZYNQ芯片到接口之间走线做了等长和差分处理，并且核心板尺寸仅为35*42（mm），对于二次开发来说非常适合。</p>
+</div></blockquote>
+<a class="reference internal image-reference" href="../_images/image4102.png"><img alt="../_images/image4102.png" src="../_images/image4102.png" style="width: 5.23958in; height: 4.34583in;" /></a>
+<p>AC7Z020核心板正面图</p>
+<a class="reference internal image-reference" href="../_images/image584.png"><img alt="../_images/image584.png" src="../_images/image584.png" style="width: 5.40486in; height: 4.45764in;" /></a>
+<p>AC7Z020核心板背面图</p>
+</section>
+<section id="zynq">
+<h2>ZYNQ芯片<a class="headerlink" href="#zynq" title="此标题的永久链接">#</a></h2>
+<p>开发板使用的是Xilinx公司的Zynq7000系列的芯片，型号为XC7Z020-2CLG400I。芯片的PS系统集成了两个ARM
+Cortex™-A9处理器，AMBA®互连，内部存储器，外部存储器接口和外设。这些外设主要包括USB总线接口，以太网接口，SD/SDIO接口，I2C总线接口，CAN总线接口，UART接口，GPIO等。PS可以独立运行并在上电或复位下启动。ZYNQ7000芯片的总体框图如图2-2-1所示</p>
+<a class="reference internal image-reference" href="../_images/image676.png"><img alt="../_images/image676.png" src="../_images/image676.png" style="width: 6.02292in; height: 3.46458in;" /></a>
+<p>图2-2-1 ZYNQ7000芯片的总体框图</p>
+<p>其中PS系统部分的主要参数如下：</p>
+<ul class="simple">
+<li><p>基于ARM 双核CortexA9 的应用处理器，ARM-v7架构 高达1GHz</p></li>
+<li><p>每个CPU 32KB 1级指令和数据缓存，512KB 2级缓存 2个CPU共享</p></li>
+<li><p>片上boot ROM和256KB 片内RAM</p></li>
+<li><p>外部存储接口，支持16/32 bit DDR2、DDR3接口</p></li>
+<li><p>两个千兆网卡支持：发散-聚集DMA ，GMII，RGMII，SGMII接口</p></li>
+<li><p>两个USB2.0 OTG接口，每个最多支持12节点</p></li>
+<li><p>两个CAN2.0B总线接口</p></li>
+<li><p>两个SD卡、SDIO、MMC兼容控制器</p></li>
+<li><p>2个SPI，2个UARTs，2个I2C接口</p></li>
+<li><p>4组32bit GPIO，54（32+22）作为PS系统IO，64连接到PL</p></li>
+<li><p>PS内和PS到PL的高带宽连接</p></li>
+</ul>
+<p>其中PL逻辑部分的主要参数如下：</p>
+<ul class="simple">
+<li><p>逻辑单元Logic Cells：85K；</p></li>
+<li><p>查找表LUTs: 53,200</p></li>
+<li><p>触发器(flip-flops):106,400</p></li>
+<li><p>乘法器18x25MACCs：220;</p></li>
+<li><p>Block RAM：4.9Mb；</p></li>
+<li><p>两个AD转换器,可以测量片上电压、温度感应和高达17外部差分输入通道，1MBPS</p></li>
+</ul>
+<p>XC7Z020-2CLG400I芯片的速度等级为-2，工业级，封装为BGA400，引脚间距为0.8mm，ZYNQ7000系列的具体的芯片型号定义如下图2-2-2所示。</p>
+<a class="reference internal image-reference" href="../_images/image769.png"><img alt="../_images/image769.png" src="../_images/image769.png" style="width: 6.13125in; height: 2.57431in;" /></a>
+<p>图2-2-2 ZYNQ型号命名规则定义</p>
+<p>图2-2-3为开发板所用的XC7Z020芯片实物图。</p>
+<a class="reference internal image-reference" href="../_images/image868.png"><img alt="../_images/image868.png" src="../_images/image868.png" style="width: 3.49931in; height: 3.46806in;" /></a>
+<p>图2-2-3 XC7Z020芯片实物</p>
+</section>
+<section id="ddr3-dram">
+<h2>DDR3 DRAM<a class="headerlink" href="#ddr3-dram" title="此标题的永久链接">#</a></h2>
+<p>AC7Z020核心板上配有两片Micron公司的DDR3
+SDRAM芯片(共计1GB),型号为MT41K256M16TW-107(兼容海力士的H5TQ4G63AFR-PBI）。DDR3
+SDRAM的总线宽度共为32bit。DDR3
+SDRAM的最高运行速度可达533MHz(数据速率1066Mbps)。该DDR3存储系统直接连接到了ZYNQ处理系统（PS）的BANK
+502的存储器接口上。DDR3 SDRAM的具体配置如下表2-3-1所示。</p>
+<p>表5-1 DDR3 SDRAM配置</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>位号</strong></p></td>
+<td><p><strong>芯片型号</strong></p></td>
+<td><p><strong>容量</strong></p></td>
+<td><p><strong>厂家</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>U8,U9</p></td>
+<td><p>MT41K256M16TW-107</p></td>
+<td><p>256M x 16bit</p></td>
+<td><p>Micron</p></td>
+</tr>
+</tbody>
+</table>
+<p>DDR3的硬件设计需要严格考虑信号完整性，我们在电路设计和PCB设计的时候已经充分考虑了匹配电阻/终端电阻,走线阻抗控制，走线等长控制，　保证DDR3的高速稳定的工作。</p>
+<p>DDR3 DRAM的硬件连接方式如图2-3-1所示:</p>
+<img alt="../_images/image957.png" src="../_images/image957.png" />
+<p>图2-3-1 DDR3 DRAM原理图部分</p>
+<p>图2-3-2为DDR3 DRAM实物图</p>
+<a class="reference internal image-reference" href="../_images/image1050.png"><img alt="../_images/image1050.png" src="../_images/image1050.png" style="width: 3.52708in; height: 4.45833in;" /></a>
+<p>图2-3-2 DDR3 DRAM实物图</p>
+<p><strong>DDR3 DRAM引脚分配：</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>ZYNQ引脚名</strong></p></td>
+<td><p><strong>ZYNQ引脚号</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_DQS0_P</strong></p></td>
+<td><p>PS_DDR_DQS_P0_502</p></td>
+<td><p>C2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_DQS0_N</strong></p></td>
+<td><p>PS_DDR_DQS_N0_502</p></td>
+<td><p>B2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_DQS1_P</strong></p></td>
+<td><p>PS_DDR_DQS_P1_502</p></td>
+<td><p>G2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_DQS1_N</strong></p></td>
+<td><p>PS_DDR_DQS_N1_502</p></td>
+<td><p>F2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_DQS2_P</strong></p></td>
+<td><p>PS_DDR_DQS_P2_502</p></td>
+<td><p>R2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_DQS2_N</strong></p></td>
+<td><p>PS_DDR_DQS_N2_502</p></td>
+<td><p>T2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_DQS3_P</strong></p></td>
+<td><p>PS_DDR_DQS_P3_502</p></td>
+<td><p>W5</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_DQS4_N</strong></p></td>
+<td><p>PS_DDR_DQS_N3_502</p></td>
+<td><p>W4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_D0</strong></p></td>
+<td><p>PS_DDR_DQ0_502</p></td>
+<td><p>C3</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_D1</strong></p></td>
+<td><p>PS_DDR_DQ1_502</p></td>
+<td><p>B3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_D2</strong></p></td>
+<td><p>PS_DDR_DQ2_502</p></td>
+<td><p>A2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_D3</strong></p></td>
+<td><p>PS_DDR_DQ3_502</p></td>
+<td><p>A4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_D4</strong></p></td>
+<td><p>PS_DDR_DQ4_502</p></td>
+<td><p>D3</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_D5</strong></p></td>
+<td><p>PS_DDR_DQ5_502</p></td>
+<td><p>D1</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_D6</strong></p></td>
+<td><p>PS_DDR_DQ6_502</p></td>
+<td><p>C1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_D7</strong></p></td>
+<td><p>PS_DDR_DQ7_502</p></td>
+<td><p>E1</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_D8</strong></p></td>
+<td><p>PS_DDR_DQ8_502</p></td>
+<td><p>E2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_D9</strong></p></td>
+<td><p>PS_DDR_DQ9_502</p></td>
+<td><p>E3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_D10</strong></p></td>
+<td><p>PS_DDR_DQ10_502</p></td>
+<td><p>G3</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_D11</strong></p></td>
+<td><p>PS_DDR_DQ11_502</p></td>
+<td><p>H3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_D12</strong></p></td>
+<td><p>PS_DDR_DQ12_502</p></td>
+<td><p>J3</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_D13</strong></p></td>
+<td><p>PS_DDR_DQ13_502</p></td>
+<td><p>H2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_D14</strong></p></td>
+<td><p>PS_DDR_DQ14_502</p></td>
+<td><p>H1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_D15</strong></p></td>
+<td><p>PS_DDR_DQ15_502</p></td>
+<td><p>J1</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_D16</strong></p></td>
+<td><p>PS_DDR_DQ16_502</p></td>
+<td><p>P1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_D17</strong></p></td>
+<td><p>PS_DDR_DQ17_502</p></td>
+<td><p>P3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_D18</strong></p></td>
+<td><p>PS_DDR_DQ18_502</p></td>
+<td><p>R3</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_D19</strong></p></td>
+<td><p>PS_DDR_DQ19_502</p></td>
+<td><p>R1</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_D20</strong></p></td>
+<td><p>PS_DDR_DQ20_502</p></td>
+<td><p>T4</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_D21</strong></p></td>
+<td><p>PS_DDR_DQ21_502</p></td>
+<td><p>U4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_D22</strong></p></td>
+<td><p>PS_DDR_DQ22_502</p></td>
+<td><p>U2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_D23</strong></p></td>
+<td><p>PS_DDR_DQ23_502</p></td>
+<td><p>U3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_D24</strong></p></td>
+<td><p>PS_DDR_DQ24_502</p></td>
+<td><p>V1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_D25</strong></p></td>
+<td><p>PS_DDR_DQ25_502</p></td>
+<td><p>Y3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_D26</strong></p></td>
+<td><p>PS_DDR_DQ26_502</p></td>
+<td><p>W1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_D27</strong></p></td>
+<td><p>PS_DDR_DQ27_502</p></td>
+<td><p>Y4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_D28</strong></p></td>
+<td><p>PS_DDR_DQ28_502</p></td>
+<td><p>Y2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_D29</strong></p></td>
+<td><p>PS_DDR_DQ29_502</p></td>
+<td><p>W3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_D30</strong></p></td>
+<td><p>PS_DDR_DQ30_502</p></td>
+<td><p>V2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_D31</strong></p></td>
+<td><p>PS_DDR_DQ31_502</p></td>
+<td><p>V3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_DM0</strong></p></td>
+<td><p>PS_DDR_DM0_502</p></td>
+<td><p>A1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_DM1</strong></p></td>
+<td><p>PS_DDR_DM1_502</p></td>
+<td><p>F1</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_DM2</strong></p></td>
+<td><p>PS_DDR_DM2_502</p></td>
+<td><p>T1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_DM3</strong></p></td>
+<td><p>PS_DDR_DM3_502</p></td>
+<td><p>Y1</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_A0</strong></p></td>
+<td><p>PS_DDR_A0_502</p></td>
+<td><p>N2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_A1</strong></p></td>
+<td><p>PS_DDR_A1_502</p></td>
+<td><p>K2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_A2</strong></p></td>
+<td><p>PS_DDR_A2_502</p></td>
+<td><p>M3</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_A3</strong></p></td>
+<td><p>PS_DDR_A3_502</p></td>
+<td><p>K3</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_A4</strong></p></td>
+<td><p>PS_DDR_A4_502</p></td>
+<td><p>M4</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_A5</strong></p></td>
+<td><p>PS_DDR_A5_502</p></td>
+<td><p>L1</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_A6</strong></p></td>
+<td><p>PS_DDR_A6_502</p></td>
+<td><p>L4</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_A7</strong></p></td>
+<td><p>PS_DDR_A7_502</p></td>
+<td><p>K4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_A8</strong></p></td>
+<td><p>PS_DDR_A8_502</p></td>
+<td><p>K1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_A9</strong></p></td>
+<td><p>PS_DDR_A9_502</p></td>
+<td><p>J4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_A10</strong></p></td>
+<td><p>PS_DDR_A10_502</p></td>
+<td><p>F5</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_A11</strong></p></td>
+<td><p>PS_DDR_A11_502</p></td>
+<td><p>G4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_A12</strong></p></td>
+<td><p>PS_DDR_A12_502</p></td>
+<td><p>E4</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_A13</strong></p></td>
+<td><p>PS_DDR_A13_502</p></td>
+<td><p>D4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_A14</strong></p></td>
+<td><p>PS_DDR_A14_502</p></td>
+<td><p>F4</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_BA0</strong></p></td>
+<td><p>PS_DDR_BA0_502</p></td>
+<td><p>L5</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_BA1</strong></p></td>
+<td><p>PS_DDR_BA1_502</p></td>
+<td><p>R4</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_BA2</strong></p></td>
+<td><p>PS_DDR_BA2_502</p></td>
+<td><p>J5</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_S0</strong></p></td>
+<td><p>PS_DDR_CS_B_502</p></td>
+<td><p>N1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_RAS</strong></p></td>
+<td><p>PS_DDR_RAS_B_502</p></td>
+<td><p>P4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_CAS</strong></p></td>
+<td><p>PS_DDR_CAS_B_502</p></td>
+<td><p>P5</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_WE</strong></p></td>
+<td><p>PS_DDR_WE_B_502</p></td>
+<td><p>M5</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_ODT</strong></p></td>
+<td><p>PS_DDR_ODT_502</p></td>
+<td><p>N5</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_RESET</strong></p></td>
+<td><p>PS_DDR_DRST_B_502</p></td>
+<td><p>B4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_CLK0_P</strong></p></td>
+<td><p>PS_DDR_CKP_502</p></td>
+<td><p>L2</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>DDR3_CLK0_N</strong></p></td>
+<td><p>PS_DDR_CKN_502</p></td>
+<td><p>M2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>DDR3_CKE</strong></p></td>
+<td><p>PS_DDR_CKE_502</p></td>
+<td><p>N3</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="qspi-flash">
+<h2>QSPI Flash<a class="headerlink" href="#qspi-flash" title="此标题的永久链接">#</a></h2>
+<p>核心板配有一片256MBit大小的Quad-SPI
+FLASH芯片，型号为W25Q256FVEI，它使用3.3V CMOS电压标准。由于QSPI
+FLASH的非易失特性，在使用中，
+它可以作为系统的启动设备来存储系统的启动镜像。这些镜像主要包括FPGA的bit文件、ARM的应用程序代码以及其它的用户数据文件。QSPI
+FLASH的具体型号和相关参数见表2-4-1。</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>位号</strong></p></td>
+<td><p><strong>芯片类型</strong></p></td>
+<td><p><strong>容量</strong></p></td>
+<td><p><strong>厂家</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>U15</p></td>
+<td><p>W25Q256FVEI</p></td>
+<td><p>32M Byte</p></td>
+<td><p>Winbond</p></td>
+</tr>
+</tbody>
+</table>
+<p>表2-4-1 QSPI Flash的型号和参数</p>
+<p>QSPI
+FLASH连接到ZYNQ芯片的PS部分BANK500的GPIO口上，在系统设计中需要配置这些PS端的GPIO口功能为QSPI
+FLASH接口。为图2-4-1为QSPI Flash在原理图中的部分。</p>
+<img alt="../_images/image1188.png" src="../_images/image1188.png" />
+<p>图2-4-1 QSPI Flash连接示意图</p>
+<p>图2-4-2为QSPI Flash的实物图</p>
+<a class="reference internal image-reference" href="../_images/image1250.png"><img alt="../_images/image1250.png" src="../_images/image1250.png" style="width: 2.63611in; height: 1.975in;" /></a>
+<p>2-4-2为QSPI Flash的实物图</p>
+<p><strong>配置芯片引脚分配：</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>ZYNQ引脚名</strong></p></td>
+<td><p><strong>ZYNQ引脚号</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>QSPI_SCK</strong></p></td>
+<td><p>PS_MIO6_500</p></td>
+<td><p>A5</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>QSPI_CS</strong></p></td>
+<td><p>PS_MIO1_500</p></td>
+<td><p>A7</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>QSPI_D0</strong></p></td>
+<td><p>PS_MIO2_500</p></td>
+<td><p>B8</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>QSPI_D1</strong></p></td>
+<td><p>PS_MIO3_500</p></td>
+<td><p>D6</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>QSPI_D2</strong></p></td>
+<td><p>PS_MIO4_500</p></td>
+<td><p>B7</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>QSPI_D3</strong></p></td>
+<td><p>PS_MIO5_500</p></td>
+<td><p>A6</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h2>时钟配置<a class="headerlink" href="#id3" title="此标题的永久链接">#</a></h2>
+<p>AC7Z020核心板上为PS系统提供了有源时钟，使PS系统可以单独工作。PL的时钟由底板提供。</p>
+<p><strong>PS系统时钟源</strong></p>
+<p>ZYNQ芯片通过核心板上的X1晶振为PS部分提供33.333333MHz的时钟输入。时钟的输入连接到ZYNQ芯片的BANK500的PS_CLK_500的管脚上。其原理图如图2-5-1所示：</p>
+<a class="reference internal image-reference" href="../_images/image1346.png"><img alt="../_images/image1346.png" src="../_images/image1346.png" style="width: 4.39514in; height: 1.28125in;" /></a>
+<p>图2-5-1 PS部分的有源晶振</p>
+<p>图2-5-2为PS端有源晶振实物图</p>
+<a class="reference internal image-reference" href="../_images/image1444.png"><img alt="../_images/image1444.png" src="../_images/image1444.png" style="width: 2.11458in; height: 1.30208in;" /></a>
+<p>图2-5-2 33.333333Mhz有源晶振实物图</p>
+<p><strong>时钟引脚分配：</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p>ZYNQ引脚</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PS_CLK_500</strong></p></td>
+<td><p>E7</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>PL时钟源</strong></p>
+<p>PL的时钟需要通过底板提供，在AX7Z010底板上有一个50Mhz的时钟，为PL部分提供时钟参考。时钟的输入连接到ZYNQ芯片的BANK34的U18的管脚上。其原理图如图2-5-3所示：</p>
+<a class="reference internal image-reference" href="../_images/image1542.png"><img alt="../_images/image1542.png" src="../_images/image1542.png" style="width: 4.94722in; height: 1.70833in;" /></a>
+<p>图2-5-3 底板PL部分的晶振</p>
+<p><strong>时钟引脚分配：</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p>ZYNQ引脚</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PL_GCLK1</strong></p></td>
+<td><p>U18</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id4">
+<h2>电源<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h2>
+<p>AC7Z020核心板供电电压为DC5V，通过连接底板供电，另外BANK34和BANK35的电源也是通过底板提供。板上的电源设计示意图如下图2-6-1所示:</p>
+<img alt="../_images/image1638.png" src="../_images/image1638.png" />
+<p>图2-6-1原理图中电源接口部分</p>
+<p>开发板通过+5V供电,
+通过四路DC/DC电源芯片转化成+1.0V，+1.8V，+1.5V，+3.3V四路电源，+1.0V输出电流可高达6A，
++1.8V和+1.5V电源为3A，+3.3V为500mA
+。J29上还各分出4个引脚给FPGA的BANK34，BANK35供电，默认为3.3V，用户可以通过更改底板上的VCCIO34和VCCIO35来改变BANK34和BANK35的电源。1.5V通过TI的TPS51206生成DDR3需要的VTT和VREF电压。各个电源分配的功能如下表所示：</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>电源</strong></p></td>
+<td><p><strong>功能</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>+1.0V</p></td>
+<td><p>ZYNQ PS和PL部分的内核电压</p></td>
+</tr>
+<tr class="row-odd"><td><p>+1.8V</p></td>
+<td><p>ZYNQ PS和PL部分辅助电压，BANK501 IO电压</p></td>
+</tr>
+<tr class="row-even"><td><p>+3.3V</p></td>
+<td><p>ZYNQ Bank0,Bank500，Bank13的VCCIO, QSIP
+FLASH, Clock晶振</p></td>
+</tr>
+<tr class="row-odd"><td><p>+1.5V</p></td>
+<td><p>DDR3, ZYNQ Bank501</p></td>
+</tr>
+<tr class="row-even"><td><p>VREF, VTT（+0.75V）</p></td>
+<td><p>DDR3</p></td>
+</tr>
+<tr class="row-odd"><td><p>VCCIO34/35</p></td>
+<td><p>Bank34, Bank35</p></td>
+</tr>
+</tbody>
+</table>
+<p>因为ZYNQ FPGA的电源有上电顺序的要求，在电路设计中，我们已经按照
+芯片的电源要求设计，上电依次为+1.0V-&gt;+1.8V-&gt;（+1.5
+V、+3.3V、VCCIO）的电路设计，保证芯片的正常工作。<strong>因为BANK34，BANK35的电平标准由底板提供的电源决定，最高为3.3V，用户自己设计底板为核心板提供VCCIO34和VCCIO35的电源时，上电的顺序要比+5V慢一些。</strong></p>
+</section>
+<section id="id5">
+<h2>结构图<a class="headerlink" href="#id5" title="此标题的永久链接">#</a></h2>
+<a class="reference internal image-reference" href="../_images/image1737.png"><img alt="../_images/image1737.png" src="../_images/image1737.png" style="width: 6.04028in; height: 5.25278in;" /></a>
+<p>正面图（Top View）</p>
+</section>
+<section id="id6">
+<h2>连接器管脚定义<a class="headerlink" href="#id6" title="此标题的永久链接">#</a></h2>
+<p>核心板一共扩展出2个高速扩展口，使用2个120Pin的板间连接器（J29/J30）和底板连接，连接器的PIN脚间距为0.5mm。其中J29连接5V电源，VCCIO电源输入，一部分IO信号和JTAG信号，J30连接剩余的IO信号和MIO。
+BANK34和BANK35的IO电平可以通过调整连接器上VCCIO输入来改变电平标准，最高不超过3.3V。我们设计的底板AX7Z020默认为3.3V。</p>
+<p><strong>J29连接器的引脚分配</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>J
+29管脚</strong></p></td>
+<td><p><strong>信
+号名称</strong></p></td>
+<td><p><strong>ZYNQ
+引脚号</strong></p></td>
+<td><p><strong>J
+29管脚</strong></p></td>
+<td><p><strong>信号
+名称</strong></p></td>
+<td><p><strong>ZYNQ
+引脚号</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>VCC5V</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>2</p></td>
+<td><p>VCC5V</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>VCC5V</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>4</p></td>
+<td><p>VCC5V</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>VCC5V</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>6</p></td>
+<td><p>VCC5V</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>VCC5V</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>8</p></td>
+<td><p>VCC5V</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>10</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>VCCIO_34</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>12</p></td>
+<td><p>VCCIO_35</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>VCCIO_34</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>14</p></td>
+<td><p>VCCIO_35</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>15</p></td>
+<td><p>VCCIO_34</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>16</p></td>
+<td><p>VCCIO_35</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>VCCIO_34</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>18</p></td>
+<td><p>VCCIO_35</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>19</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>20</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>21</p></td>
+<td><p>I
+O34_L10P</p></td>
+<td><p>V15</p></td>
+<td><p>22</p></td>
+<td><p>IO34_L7P</p></td>
+<td><p>Y16</p></td>
+</tr>
+<tr class="row-odd"><td><p>23</p></td>
+<td><p>I
+O34_L10N</p></td>
+<td><p>W15</p></td>
+<td><p>24</p></td>
+<td><p>IO34_L7N</p></td>
+<td><p>Y17</p></td>
+</tr>
+<tr class="row-even"><td><p>25</p></td>
+<td><p>I
+O34_L15N</p></td>
+<td><p>U20</p></td>
+<td><p>26</p></td>
+<td><p>IO34_L17P</p></td>
+<td><p>Y18</p></td>
+</tr>
+<tr class="row-odd"><td><p>27</p></td>
+<td><p>I
+O34_L15P</p></td>
+<td><p>T20</p></td>
+<td><p>28</p></td>
+<td><p>IO34_L17N</p></td>
+<td><p>Y19</p></td>
+</tr>
+<tr class="row-even"><td><p>29</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>30</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>31</p></td>
+<td><p>IO34_L9N</p></td>
+<td><p>U17</p></td>
+<td><p>32</p></td>
+<td><p>IO34_L8P</p></td>
+<td><p>W14</p></td>
+</tr>
+<tr class="row-even"><td><p>33</p></td>
+<td><p>IO34_L9P</p></td>
+<td><p>T16</p></td>
+<td><p>34</p></td>
+<td><p>IO34_L8N</p></td>
+<td><p>Y14</p></td>
+</tr>
+<tr class="row-odd"><td><p>35</p></td>
+<td><p>I
+O34_L12N</p></td>
+<td><p>U19</p></td>
+<td><p>36</p></td>
+<td><p>IO34_L3P</p></td>
+<td><p>U13</p></td>
+</tr>
+<tr class="row-even"><td><p>37</p></td>
+<td><p>I
+O34_L12P</p></td>
+<td><p>U18</p></td>
+<td><p>38</p></td>
+<td><p>IO34_L3N</p></td>
+<td><p>V13</p></td>
+</tr>
+<tr class="row-odd"><td><p>39</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>40</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>41</p></td>
+<td><p>I
+O34_L14N</p></td>
+<td><p>P20</p></td>
+<td><p>42</p></td>
+<td><p>IO34_L21N</p></td>
+<td><p>V18</p></td>
+</tr>
+<tr class="row-odd"><td><p>43</p></td>
+<td><p>I
+O34_L14P</p></td>
+<td><p>N20</p></td>
+<td><p>44</p></td>
+<td><p>IO34_L21P</p></td>
+<td><p>V17</p></td>
+</tr>
+<tr class="row-even"><td><p>45</p></td>
+<td><p>I
+O34_L16N</p></td>
+<td><p>W20</p></td>
+<td><p>46</p></td>
+<td><p>IO34_L18P</p></td>
+<td><p>V16</p></td>
+</tr>
+<tr class="row-odd"><td><p>47</p></td>
+<td><p>I
+O34_L16P</p></td>
+<td><p>V20</p></td>
+<td><p>48</p></td>
+<td><p>IO34_L18N</p></td>
+<td><p>W16</p></td>
+</tr>
+<tr class="row-even"><td><p>49</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>50</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>51</p></td>
+<td><p>I
+O34_L22N</p></td>
+<td><p>W19</p></td>
+<td><p>52</p></td>
+<td><p>IO34_L23P</p></td>
+<td><p>N17</p></td>
+</tr>
+<tr class="row-even"><td><p>53</p></td>
+<td><p>I
+O34_L22P</p></td>
+<td><p>W18</p></td>
+<td><p>54</p></td>
+<td><p>IO34_L23N</p></td>
+<td><p>P18</p></td>
+</tr>
+<tr class="row-odd"><td><p>55</p></td>
+<td><p>I
+O34_L20N</p></td>
+<td><p>R18</p></td>
+<td><p>56</p></td>
+<td><p>IO34_L13N</p></td>
+<td><p>P19</p></td>
+</tr>
+<tr class="row-even"><td><p>57</p></td>
+<td><p>I
+O34_L20P</p></td>
+<td><p>T17</p></td>
+<td><p>58</p></td>
+<td><p>IO34_L13P</p></td>
+<td><p>N18</p></td>
+</tr>
+<tr class="row-odd"><td><p>59</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>60</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>61</p></td>
+<td><p>I
+O34_L19N</p></td>
+<td><p>R17</p></td>
+<td><p>62</p></td>
+<td><p>IO34_L11N</p></td>
+<td><p>U15</p></td>
+</tr>
+<tr class="row-odd"><td><p>63</p></td>
+<td><p>I
+O34_L19P</p></td>
+<td><p>R16</p></td>
+<td><p>64</p></td>
+<td><p>IO34_L11P</p></td>
+<td><p>U14</p></td>
+</tr>
+<tr class="row-even"><td><p>65</p></td>
+<td><p>I
+O34_L24P</p></td>
+<td><p>P15</p></td>
+<td><p>66</p></td>
+<td><p>IO34_L5N</p></td>
+<td><p>T15</p></td>
+</tr>
+<tr class="row-odd"><td><p>67</p></td>
+<td><p>I
+O34_L24N</p></td>
+<td><p>P16</p></td>
+<td><p>68</p></td>
+<td><p>IO34_L5P</p></td>
+<td><p>T14</p></td>
+</tr>
+<tr class="row-even"><td><p>69</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>70</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>71</p></td>
+<td><p>IO34_L4P</p></td>
+<td><p>V12</p></td>
+<td><p>72</p></td>
+<td><p>IO34_L2N</p></td>
+<td><p>U12</p></td>
+</tr>
+<tr class="row-even"><td><p>73</p></td>
+<td><p>IO34_L4N</p></td>
+<td><p>W13</p></td>
+<td><p>74</p></td>
+<td><p>IO34_L2P</p></td>
+<td><p>T12</p></td>
+</tr>
+<tr class="row-odd"><td><p>75</p></td>
+<td><p>IO34_L1P</p></td>
+<td><p>T11</p></td>
+<td><p>76</p></td>
+<td><p>IO34_L6N</p></td>
+<td><p>R14</p></td>
+</tr>
+<tr class="row-even"><td><p>77</p></td>
+<td><p>IO34_L1N</p></td>
+<td><p>T10</p></td>
+<td><p>78</p></td>
+<td><p>IO34_L6P</p></td>
+<td><p>P14</p></td>
+</tr>
+<tr class="row-odd"><td><p>79</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>80</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>81</p></td>
+<td><p>I
+O13_L13P</p></td>
+<td><p>Y7</p></td>
+<td><p>82</p></td>
+<td><p>IO13_L21P</p></td>
+<td><p>V11</p></td>
+</tr>
+<tr class="row-odd"><td><p>83</p></td>
+<td><p>I
+O13_L13N</p></td>
+<td><p>Y6</p></td>
+<td><p>84</p></td>
+<td><p>IO13_L21N</p></td>
+<td><p>V10</p></td>
+</tr>
+<tr class="row-even"><td><p>85</p></td>
+<td><p>I
+O13_L11N</p></td>
+<td><p>V7</p></td>
+<td><p>86</p></td>
+<td><p>IO13_L14N</p></td>
+<td><p>Y8</p></td>
+</tr>
+<tr class="row-odd"><td><p>87</p></td>
+<td><p>I
+O13_L11P</p></td>
+<td><p>U7</p></td>
+<td><p>88</p></td>
+<td><p>IO13_L14P</p></td>
+<td><p>Y9</p></td>
+</tr>
+<tr class="row-even"><td><p>89</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>90</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>91</p></td>
+<td><p>I
+O13_L19N</p></td>
+<td><p>U5</p></td>
+<td><p>92</p></td>
+<td><p>IO13_L22N</p></td>
+<td><p>W6</p></td>
+</tr>
+<tr class="row-even"><td><p>93</p></td>
+<td><p>I
+O13_L19P</p></td>
+<td><p>T5</p></td>
+<td><p>94</p></td>
+<td><p>IO13_L22P</p></td>
+<td><p>V6</p></td>
+</tr>
+<tr class="row-odd"><td><p>95</p></td>
+<td><p>I
+O13_L16P</p></td>
+<td><p>W10</p></td>
+<td><p>96</p></td>
+<td><p>IO13_L15P</p></td>
+<td><p>V8</p></td>
+</tr>
+<tr class="row-even"><td><p>97</p></td>
+<td><p>I
+O13_L16N</p></td>
+<td><p>W9</p></td>
+<td><p>98</p></td>
+<td><p>IO13_L15N</p></td>
+<td><p>W8</p></td>
+</tr>
+<tr class="row-odd"><td><p>99</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>100</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p>101</p></td>
+<td><p>I
+O13_L17P</p></td>
+<td><p>U9</p></td>
+<td><p>102</p></td>
+<td><p>IO13_L20P</p></td>
+<td><p>Y12</p></td>
+</tr>
+<tr class="row-odd"><td><p>103</p></td>
+<td><p>I
+O13_L17N</p></td>
+<td><p>U8</p></td>
+<td><p>104</p></td>
+<td><p>IO13_L20N</p></td>
+<td><p>Y13</p></td>
+</tr>
+<tr class="row-even"><td><p>105</p></td>
+<td><p>I
+O13_L18P</p></td>
+<td><p>W11</p></td>
+<td><p>106</p></td>
+<td><p>IO13_L12N</p></td>
+<td><p>U10</p></td>
+</tr>
+<tr class="row-odd"><td><p>107</p></td>
+<td><p>I
+O13_L18N</p></td>
+<td><p>Y11</p></td>
+<td><p>108</p></td>
+<td><p>IO13_L12P</p></td>
+<td><p>T9</p></td>
+</tr>
+<tr class="row-even"><td><p>109</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>110</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>111</p></td>
+<td><p>FPGA_TCK</p></td>
+<td><p>F9</p></td>
+<td><p>112</p></td>
+<td><p>VP</p></td>
+<td><p>K9</p></td>
+</tr>
+<tr class="row-even"><td><p>113</p></td>
+<td><p>FPGA_TMS</p></td>
+<td><p>J6</p></td>
+<td><p>114</p></td>
+<td><p>VN</p></td>
+<td><p>L10</p></td>
+</tr>
+<tr class="row-odd"><td><p>115</p></td>
+<td><p>FPGA_TDO</p></td>
+<td><p>F6</p></td>
+<td><p>116</p></td>
+<td><p>PS_POR_B</p></td>
+<td><p>C7</p></td>
+</tr>
+<tr class="row-even"><td><p>117</p></td>
+<td><p>FPGA_TDI</p></td>
+<td><p>G6</p></td>
+<td><p>118</p></td>
+<td><p>FPGA_DONE</p></td>
+<td><p>R11</p></td>
+</tr>
+<tr class="row-odd"><td><p>119</p></td>
+<td><p>NC</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>120</p></td>
+<td><p>NC</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>J30连接器的引脚分配</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>J30
+管脚</strong></p></td>
+<td><p><strong>信号名称</strong></p></td>
+<td><p><strong>ZY
+NQ引
+脚号</strong></p></td>
+<td><p><strong>J30
+管脚</strong></p></td>
+<td><p><strong>信号名称</strong></p></td>
+<td><p><strong>ZYN
+Q引
+脚号</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>IO35_L1P</p></td>
+<td><p>C20</p></td>
+<td><p>2</p></td>
+<td><p>IO35_L15N</p></td>
+<td><p>F20</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>IO35_L1N</p></td>
+<td><p>B20</p></td>
+<td><p>4</p></td>
+<td><p>IO35_L15P</p></td>
+<td><p>F19</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>IO35_L18N</p></td>
+<td><p>G20</p></td>
+<td><p>6</p></td>
+<td><p>IO35_L5P</p></td>
+<td><p>E18</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>IO35_L18P</p></td>
+<td><p>G19</p></td>
+<td><p>8</p></td>
+<td><p>IO35_L5N</p></td>
+<td><p>E19</p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+<td><p>10</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>IO35_L10N</p></td>
+<td><p>J19</p></td>
+<td><p>12</p></td>
+<td><p>IO35_L3N</p></td>
+<td><p>D18</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>IO35_L10P</p></td>
+<td><p>K19</p></td>
+<td><p>14</p></td>
+<td><p>IO35_L3P</p></td>
+<td><p>E17</p></td>
+</tr>
+<tr class="row-odd"><td><p>15</p></td>
+<td><p>IO35_L2N</p></td>
+<td><p>A20</p></td>
+<td><p>16</p></td>
+<td><p>IO35_L4P</p></td>
+<td><p>D19</p></td>
+</tr>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>IO35_L2P</p></td>
+<td><p>B19</p></td>
+<td><p>18</p></td>
+<td><p>IO35_L4N</p></td>
+<td><p>D20</p></td>
+</tr>
+<tr class="row-odd"><td><p>19</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+<td><p>20</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+</tr>
+<tr class="row-even"><td><p>21</p></td>
+<td><p>IO35_L8P</p></td>
+<td><p>M17</p></td>
+<td><p>22</p></td>
+<td><p>IO35_L9N</p></td>
+<td><p>L20</p></td>
+</tr>
+<tr class="row-odd"><td><p>23</p></td>
+<td><p>IO35_L8N</p></td>
+<td><p>M18</p></td>
+<td><p>24</p></td>
+<td><p>IO35_L9P</p></td>
+<td><p>L19</p></td>
+</tr>
+<tr class="row-even"><td><p>25</p></td>
+<td><p>IO35_L7P</p></td>
+<td><p>M19</p></td>
+<td><p>26</p></td>
+<td><p>IO35_L6P</p></td>
+<td><p>F16</p></td>
+</tr>
+<tr class="row-odd"><td><p>27</p></td>
+<td><p>IO35_L7N</p></td>
+<td><p>M20</p></td>
+<td><p>28</p></td>
+<td><p>IO35_L6N</p></td>
+<td><p>F17</p></td>
+</tr>
+<tr class="row-even"><td><p>29</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+<td><p>30</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+</tr>
+<tr class="row-odd"><td><p>31</p></td>
+<td><p>IO35_L17N</p></td>
+<td><p>H20</p></td>
+<td><p>32</p></td>
+<td><p>IO35_L16N</p></td>
+<td><p>G18</p></td>
+</tr>
+<tr class="row-even"><td><p>33</p></td>
+<td><p>IO35_L17P</p></td>
+<td><p>J20</p></td>
+<td><p>34</p></td>
+<td><p>IO35_L16P</p></td>
+<td><p>G17</p></td>
+</tr>
+<tr class="row-odd"><td><p>35</p></td>
+<td><p>IO35_L19N</p></td>
+<td><p>G15</p></td>
+<td><p>36</p></td>
+<td><p>IO35_L13N</p></td>
+<td><p>H17</p></td>
+</tr>
+<tr class="row-even"><td><p>37</p></td>
+<td><p>IO35_L19P</p></td>
+<td><p>H15</p></td>
+<td><p>38</p></td>
+<td><p>IO35_L13P</p></td>
+<td><p>H16</p></td>
+</tr>
+<tr class="row-odd"><td><p>39</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+<td><p>40</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+</tr>
+<tr class="row-even"><td><p>41</p></td>
+<td><p>IO35_L12N</p></td>
+<td><p>K18</p></td>
+<td><p>42</p></td>
+<td><p>IO35_L14N</p></td>
+<td><p>H18</p></td>
+</tr>
+<tr class="row-odd"><td><p>43</p></td>
+<td><p>IO35_L12P</p></td>
+<td><p>K17</p></td>
+<td><p>44</p></td>
+<td><p>IO35_L14P</p></td>
+<td><p>J18</p></td>
+</tr>
+<tr class="row-even"><td><p>45</p></td>
+<td><p>IO35_L24N</p></td>
+<td><p>J16</p></td>
+<td><p>46</p></td>
+<td><p>IO35_L20P</p></td>
+<td><p>K14</p></td>
+</tr>
+<tr class="row-odd"><td><p>47</p></td>
+<td><p>IO35_L24P</p></td>
+<td><p>K16</p></td>
+<td><p>48</p></td>
+<td><p>IO35_L20N</p></td>
+<td><p>J14</p></td>
+</tr>
+<tr class="row-even"><td><p>49</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+<td><p>50</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+</tr>
+<tr class="row-odd"><td><p>51</p></td>
+<td><p>IO35_L21N</p></td>
+<td><p>N16</p></td>
+<td><p>52</p></td>
+<td><p>IO35_L11P</p></td>
+<td><p>L16</p></td>
+</tr>
+<tr class="row-even"><td><p>53</p></td>
+<td><p>IO35_L21P</p></td>
+<td><p>N15</p></td>
+<td><p>54</p></td>
+<td><p>IO35_L11N</p></td>
+<td><p>L17</p></td>
+</tr>
+<tr class="row-odd"><td><p>55</p></td>
+<td><p>IO35_L22N</p></td>
+<td><p>L15</p></td>
+<td><p>56</p></td>
+<td><p>IO35_L23P</p></td>
+<td><p>M14</p></td>
+</tr>
+<tr class="row-even"><td><p>57</p></td>
+<td><p>IO35_L22P</p></td>
+<td><p>L14</p></td>
+<td><p>58</p></td>
+<td><p>IO35_L23N</p></td>
+<td><p>M15</p></td>
+</tr>
+<tr class="row-odd"><td><p>59</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+<td><p>60</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+</tr>
+<tr class="row-even"><td><p>61</p></td>
+<td><p>PS_MIO22</p></td>
+<td><p>B17</p></td>
+<td><p>62</p></td>
+<td><p>PS_MIO50</p></td>
+<td><p>B13</p></td>
+</tr>
+<tr class="row-odd"><td><p>63</p></td>
+<td><p>PS_MIO27</p></td>
+<td><p>D13</p></td>
+<td><p>64</p></td>
+<td><p>PS_MIO45</p></td>
+<td><p>B15</p></td>
+</tr>
+<tr class="row-even"><td><p>65</p></td>
+<td><p>PS_MIO23</p></td>
+<td><p>D11</p></td>
+<td><p>66</p></td>
+<td><p>PS_MIO46</p></td>
+<td><p>D16</p></td>
+</tr>
+<tr class="row-odd"><td><p>67</p></td>
+<td><p>PS_MIO24</p></td>
+<td><p>A16</p></td>
+<td><p>68</p></td>
+<td><p>PS_MIO41</p></td>
+<td><p>C17</p></td>
+</tr>
+<tr class="row-even"><td><p>69</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+<td><p>70</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+</tr>
+<tr class="row-odd"><td><p>71</p></td>
+<td><p>PS_MIO25</p></td>
+<td><p>F15</p></td>
+<td><p>72</p></td>
+<td><p>PS_MIO7</p></td>
+<td><p>D8</p></td>
+</tr>
+<tr class="row-even"><td><p>73</p></td>
+<td><p>PS_MIO26</p></td>
+<td><p>A15</p></td>
+<td><p>74</p></td>
+<td><p>PS_MIO12</p></td>
+<td><p>D9</p></td>
+</tr>
+<tr class="row-odd"><td><p>75</p></td>
+<td><p>PS_MIO21</p></td>
+<td><p>F14</p></td>
+<td><p>76</p></td>
+<td><p>PS_MIO10</p></td>
+<td><p>E9</p></td>
+</tr>
+<tr class="row-even"><td><p>77</p></td>
+<td><p>PS_MIO16</p></td>
+<td><p>A19</p></td>
+<td><p>78</p></td>
+<td><p>PS_MIO11</p></td>
+<td><p>C6</p></td>
+</tr>
+<tr class="row-odd"><td><p>79</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+<td><p>80</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+</tr>
+<tr class="row-even"><td><p>81</p></td>
+<td><p>PS_MIO20</p></td>
+<td><p>A17</p></td>
+<td><p>82</p></td>
+<td><p>PS_MIO9</p></td>
+<td><p>B5</p></td>
+</tr>
+<tr class="row-odd"><td><p>83</p></td>
+<td><p>PS_MIO19</p></td>
+<td><p>D10</p></td>
+<td><p>84</p></td>
+<td><p>PS_MIO14</p></td>
+<td><p>C5</p></td>
+</tr>
+<tr class="row-even"><td><p>85</p></td>
+<td><p>PS_MIO18</p></td>
+<td><p>B18</p></td>
+<td><p>86</p></td>
+<td><p>PS_MIO8</p></td>
+<td><p>D5</p></td>
+</tr>
+<tr class="row-odd"><td><p>87</p></td>
+<td><p>PS_MIO17</p></td>
+<td><p>E14</p></td>
+<td><p>88</p></td>
+<td><p>PS_MIO0</p></td>
+<td><p>E6</p></td>
+</tr>
+<tr class="row-even"><td><p>89</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+<td><p>90</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+</tr>
+<tr class="row-odd"><td><p>91</p></td>
+<td><p>PS_MIO39</p></td>
+<td><p>C18</p></td>
+<td><p>92</p></td>
+<td><p>PS_MIO13</p></td>
+<td><p>E8</p></td>
+</tr>
+<tr class="row-even"><td><p>93</p></td>
+<td><p>PS_MIO38</p></td>
+<td><p>E13</p></td>
+<td><p>94</p></td>
+<td><p>PS_MIO47</p></td>
+<td><p>B14</p></td>
+</tr>
+<tr class="row-odd"><td><p>95</p></td>
+<td><p>PS_MIO37</p></td>
+<td><p>A10</p></td>
+<td><p>96</p></td>
+<td><p>PS_MIO48</p></td>
+<td><p>B12</p></td>
+</tr>
+<tr class="row-even"><td><p>97</p></td>
+<td><p>PS_MIO28</p></td>
+<td><p>C16</p></td>
+<td><p>98</p></td>
+<td><p>PS_MIO49</p></td>
+<td><p>C12</p></td>
+</tr>
+<tr class="row-odd"><td><p>99</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+<td><p>100</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+</tr>
+<tr class="row-even"><td><p>101</p></td>
+<td><p>PS_MIO35</p></td>
+<td><p>F12</p></td>
+<td><p>102</p></td>
+<td><p>PS_MIO52</p></td>
+<td><p>C10</p></td>
+</tr>
+<tr class="row-odd"><td><p>103</p></td>
+<td><p>PS_MIO34</p></td>
+<td><p>A12</p></td>
+<td><p>104</p></td>
+<td><p>PS_MIO51</p></td>
+<td><p>B9</p></td>
+</tr>
+<tr class="row-even"><td><p>105</p></td>
+<td><p>PS_MIO33</p></td>
+<td><p>D15</p></td>
+<td><p>106</p></td>
+<td><p>PS_MIO40</p></td>
+<td><p>D14</p></td>
+</tr>
+<tr class="row-odd"><td><p>107</p></td>
+<td><p>PS_MIO32</p></td>
+<td><p>A14</p></td>
+<td><p>108</p></td>
+<td><p>PS_MIO44</p></td>
+<td><p>F13</p></td>
+</tr>
+<tr class="row-even"><td><p>109</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+<td><p>110</p></td>
+<td><p>GND</p></td>
+<td><p>T13</p></td>
+</tr>
+<tr class="row-odd"><td><p>111</p></td>
+<td><p>PS_MIO31</p></td>
+<td><p>E16</p></td>
+<td><p>112</p></td>
+<td><p>PS_MIO15</p></td>
+<td><p>C8</p></td>
+</tr>
+<tr class="row-even"><td><p>113</p></td>
+<td><p>PS_MIO36</p></td>
+<td><p>A11</p></td>
+<td><p>114</p></td>
+<td><p>PS_MIO42</p></td>
+<td><p>E12</p></td>
+</tr>
+<tr class="row-odd"><td><p>115</p></td>
+<td><p>PS_MIO29</p></td>
+<td><p>C13</p></td>
+<td><p>116</p></td>
+<td><p>PS_MIO43</p></td>
+<td><p>A9</p></td>
+</tr>
+<tr class="row-even"><td><p>117</p></td>
+<td><p>PS_MIO30</p></td>
+<td><p>C15</p></td>
+<td><p>118</p></td>
+<td><p>PS_MIO53</p></td>
+<td><p>C11</p></td>
+</tr>
+<tr class="row-odd"><td><p>119</p></td>
+<td><p>QS
+PI_D3_PS_MIO5</p></td>
+<td><p>A6</p></td>
+<td><p>120</p></td>
+<td><p>QS
+PI_D2_PS_MIO4</p></td>
+<td><p>B7</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id7">
+<h1>扩展板<a class="headerlink" href="#id7" title="此标题的永久链接">#</a></h1>
+<section id="id8">
+<span id="id9"></span><h2>简介<a class="headerlink" href="#id8" title="此标题的永久链接">#</a></h2>
+<p>通过前面的功能简介，我们可以了解到扩展板部分的功能</p>
+<ul class="simple">
+<li><p>2路CAN通信接口</p></li>
+<li><p>2路485通信接口</p></li>
+<li><p>1路10/100M/1000M以太网RJ-45接口</p></li>
+<li><p>1路USB HOST接口</p></li>
+<li><p>1路USB Uart通信接口</p></li>
+<li><p>1路SD卡接口</p></li>
+<li><p>2路40针扩展口</p></li>
+<li><p>2路AD输入接口</p></li>
+<li><p>1路HDMI输出接口</p></li>
+<li><p>1路MIPI摄像头接口</p></li>
+<li><p>1路RTC实时时钟</p></li>
+<li><p>1路EEPROM</p></li>
+<li><p>1路温度传感器</p></li>
+<li><p>JTAG调试口</p></li>
+<li><p>4个独立按键</p></li>
+<li><p>4个用户LED灯</p></li>
+</ul>
+</section>
+<section id="can">
+<h2>CAN通信接口<a class="headerlink" href="#can" title="此标题的永久链接">#</a></h2>
+<p>AX7Z020底板上有2路CAN通信接口，连接在PS系统端BANK500的GPIO接口上。CAN收发芯片选用了TI公司的SN65HVD232C芯片为用户CAN通信服务。</p>
+<p>图3-2-1为PS端CAN收发芯片的连接示意图</p>
+<blockquote>
+<div><img alt="../_images/image1836.png" src="../_images/image1836.png" />
+</div></blockquote>
+<p>图3-2-1 PS端CAN收发芯片的连接示意图</p>
+<p>图3-2-2为PS端CAN收发芯片的实物图</p>
+<a class="reference internal image-reference" href="../_images/image1937.png"><img alt="../_images/image1937.png" src="../_images/image1937.png" style="width: 1.89236in; height: 2.41944in;" /></a>
+<p>图3-2-2 PS端CAN芯片和接口的实物图</p>
+<p><strong>CAN通信引脚分配如下：</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>ZYNQ引脚名</strong></p></td>
+<td><p><strong>ZYNQ引脚号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CAN0_RX</p></td>
+<td><p>PS_MIO10</p></td>
+<td><p>E9</p></td>
+<td><p>CAN0接收端</p></td>
+</tr>
+<tr class="row-odd"><td><p>CAN0_TX</p></td>
+<td><p>PS_MIO11</p></td>
+<td><p>C6</p></td>
+<td><p>CAN0发送端</p></td>
+</tr>
+<tr class="row-even"><td><p>CAN1_RX</p></td>
+<td><p>PS_MIO13</p></td>
+<td><p>E8</p></td>
+<td><p>CAN1接收端</p></td>
+</tr>
+<tr class="row-odd"><td><p>CAN1_TX</p></td>
+<td><p>PS_MIO12</p></td>
+<td><p>D9</p></td>
+<td><p>CAN1发送端</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id10">
+<h2>485通信接口<a class="headerlink" href="#id10" title="此标题的永久链接">#</a></h2>
+<p>AX7Z020底板上有2路485通信接口，其中485通信端口1连接在PS系统端BANK500的GPIO接口上,485通信端口2连接在PL系统端BANK34的GPIO接口上。</p>
+<p>485收发芯片选用MAXIM公司的MAX3485芯片为用户485通信服务。</p>
+<p>图3-3-1为PL端485收发芯片的连接示意图</p>
+<img alt="../_images/image2035.png" src="../_images/image2035.png" />
+<p>图3-3-1 RS485芯片和接口的连接示意图</p>
+<p>图3-3-2为RS485收发芯片的实物图</p>
+<a class="reference internal image-reference" href="../_images/image2165.png"><img alt="../_images/image2165.png" src="../_images/image2165.png" style="width: 2.25764in; height: 2.58056in;" /></a>
+<p>图3-3-2 RS485芯片和接口的实物图</p>
+<p><strong>485通信引脚分配如下：</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>ZYNQ引脚名</strong></p></td>
+<td><p><strong>ZYNQ引脚号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>485_TXD1</p></td>
+<td><p>PS_MIO15</p></td>
+<td><p>C8</p></td>
+<td><p>485发送端1</p></td>
+</tr>
+<tr class="row-odd"><td><p>485_RXD1</p></td>
+<td><p>PS_MIO14</p></td>
+<td><p>C5</p></td>
+<td><p>485接收端1</p></td>
+</tr>
+<tr class="row-even"><td><p>485_DE1</p></td>
+<td><p>PS_MIO9</p></td>
+<td><p>B5</p></td>
+<td><p>4
+85接受发射使能1</p></td>
+</tr>
+<tr class="row-odd"><td><p>485_TXD2</p></td>
+<td><p>IO34_L4N</p></td>
+<td><p>W13</p></td>
+<td><p>485发送端2</p></td>
+</tr>
+<tr class="row-even"><td><p>485_RXD2</p></td>
+<td><p>IO34_L4P</p></td>
+<td><p>V12</p></td>
+<td><p>485接收端2</p></td>
+</tr>
+<tr class="row-odd"><td><p>485_DE2</p></td>
+<td><p>IO34_L12N</p></td>
+<td><p>U19</p></td>
+<td><p>4
+85接受发射使能2</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id11">
+<h2>千兆以太网接口<a class="headerlink" href="#id11" title="此标题的永久链接">#</a></h2>
+<p>AX7Z020底板上有1路千兆以太网接口，连接在PS系统端BANK501的GPIO接口上。</p>
+<p>以太网芯片采用Micrel公司的KSZ9031RNX以太网PHY芯片为用户提供网络通信服务。KSZ9031RNX芯片支持10/100/1000
+Mbps网络传输速率，通过RGMII接口跟Zynq7000系统的MAC层进行数据通信。KSZ9031RNX支持ＭDI/MDX自适应，各种速度自适应，Master/Slave自适应，支持MDIO总线进行PHY的寄存器管理。</p>
+<p>KSZ9031RNX上电会检测一些特定的IO的电平状态，从而确定自己的工作模式。表3-2-1
+描述了GPHY芯片上电之后的默认设定信息。</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>配置Pin脚</strong></p></td>
+<td><p><strong>说明</strong></p></td>
+<td><p><strong>配置值</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PHYAD[2:0]</strong></p></td>
+<td><p>MDIO/MDC 模式的PHY地址</p></td>
+<td><p>PHY Address 为 011</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>CLK125_EN</strong></p></td>
+<td><p>使能125Mhz时钟输出选择</p></td>
+<td><p>使能</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>LED_MODE</strong></p></td>
+<td><p>LED灯模式配置</p></td>
+<td><p>单个LED灯模式</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>MODE0~MODE3</strong></p></td>
+<td><p>链路自适应和全双工配置</p></td>
+<td><p>10/100/1000自适
+应，兼容全双工、半双工</p></td>
+</tr>
+</tbody>
+</table>
+<p>表3-4-1PHY芯片默认配置值</p>
+<p>当网络连接到千兆以太网时，ZYNQ和PHY芯片KSZ9031RNX的数据传输时通过RGMII总线通信，传输时钟为125Mhz，数据在时钟的上升沿和下降样采样。</p>
+<p>当网络连接到百兆以太网时，ZYNQ和PHY芯片KSZ9031RNX的数据传输时通过RMII总线通信，传输时钟为25Mhz。数据在时钟的上升沿和下降样采样。</p>
+<p>图3-2-1为ZYNQ PS端1路以太网PHY芯片连接示意图:</p>
+<p><img alt="image2" src="../_images/image2236.png" />　　　　　　　　　　　　　　　图3-4-1 ZYNQ
+PS系统与GPHY连接示意图</p>
+<p>图3-4-3为PS端以太网GPHY芯片的实物图</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/image2333.png"><img alt="../_images/image2333.png" src="../_images/image2333.png" style="width: 2.375in; height: 3.16597in;" /></a>
+</div></blockquote>
+<p>图3-4-3 PS端以太网GPHY芯片和接口实物图</p>
+<p><strong>千兆以太网引脚分配如下：</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>ZYNQ引脚名</strong></p></td>
+<td><p><strong>ZYNQ引脚号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>ETH_TXCK</p></td>
+<td><p>PS_MIO16</p></td>
+<td><p>A19</p></td>
+<td><p>RGMII 发送时钟</p></td>
+</tr>
+<tr class="row-odd"><td><p>ETH_TXD0</p></td>
+<td><p>PS_MIO17</p></td>
+<td><p>E14</p></td>
+<td><p>发送数据bit０</p></td>
+</tr>
+<tr class="row-even"><td><p>ETH_TXD1</p></td>
+<td><p>PS_MIO18</p></td>
+<td><p>B18</p></td>
+<td><p>发送数据bit1</p></td>
+</tr>
+<tr class="row-odd"><td><p>ETH_TXD2</p></td>
+<td><p>PS_MIO19</p></td>
+<td><p>D10</p></td>
+<td><p>发送数据bit2</p></td>
+</tr>
+<tr class="row-even"><td><p>ETH_TXD3</p></td>
+<td><p>PS_MIO20</p></td>
+<td><p>A17</p></td>
+<td><p>发送数据bit3</p></td>
+</tr>
+<tr class="row-odd"><td><p>ETH_TXCTL</p></td>
+<td><p>PS_MIO21</p></td>
+<td><p>F14</p></td>
+<td><p>发送使能信号</p></td>
+</tr>
+<tr class="row-even"><td><p>ETH_RXCK</p></td>
+<td><p>PS_MIO22</p></td>
+<td><p>B17</p></td>
+<td><p>RGMII接收时钟</p></td>
+</tr>
+<tr class="row-odd"><td><p>ETH_RXD0</p></td>
+<td><p>PS_MIO23</p></td>
+<td><p>D11</p></td>
+<td><p>接收数据Bit0</p></td>
+</tr>
+<tr class="row-even"><td><p>ETH_RXD1</p></td>
+<td><p>PS_MIO24</p></td>
+<td><p>A16</p></td>
+<td><p>接收数据Bit1</p></td>
+</tr>
+<tr class="row-odd"><td><p>ETH_RXD2</p></td>
+<td><p>PS_MIO25</p></td>
+<td><p>F15</p></td>
+<td><p>接收数据Bit2</p></td>
+</tr>
+<tr class="row-even"><td><p>ETH_RXD3</p></td>
+<td><p>PS_MIO26</p></td>
+<td><p>A15</p></td>
+<td><p>接收数据Bit3</p></td>
+</tr>
+<tr class="row-odd"><td><p>ETH_RXCTL</p></td>
+<td><p>PS_MIO27</p></td>
+<td><p>D13</p></td>
+<td><p>接
+收数据有效信号</p></td>
+</tr>
+<tr class="row-even"><td><p>ETH_MDC</p></td>
+<td><p>PS_MIO52</p></td>
+<td><p>C10</p></td>
+<td><p>MDIO管理时钟</p></td>
+</tr>
+<tr class="row-odd"><td><p>ETH_MDIO</p></td>
+<td><p>PS_MIO53</p></td>
+<td><p>C11</p></td>
+<td><p>MDIO管理数据</p></td>
+</tr>
+<tr class="row-even"><td><p>PS_POR_B</p></td>
+<td><p>PS_POR_B</p></td>
+<td><p>C7</p></td>
+<td><p>复位信号</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="usb2-0-host">
+<h2>USB2.0 Host接口<a class="headerlink" href="#usb2-0-host" title="此标题的永久链接">#</a></h2>
+<p>AX7Z020底板上有1个USB2.0 HOST接口，
+USB2.0收发器采用的是一个1.8V的，高速的支持ULPI标准接口的USB3320C-EZK芯片,ZYNQ的USB总线接口和USB3320C-EZK收发器相连接，实现高速的USB2.0
+Host模式的数据通信。USB3320C的USB的数据和控制信号连接到ZYNQ芯片PS端的BANK501的IO口上。24MHz的晶振为为USB3320C芯片提供系统时钟。</p>
+<p>USB接口为扁型USB接口(USB Type A)，方便用户同时连接不同的USB
+Slave外设(比如USB鼠标和USB键盘）。另外底板为USB接口提供了+5V的电源。</p>
+<p>ZYNQ处理器和USB3320C-EZK芯片连接的示意图如3-5-1所示：</p>
+<img alt="../_images/image2429.png" src="../_images/image2429.png" />
+<p>图3-5-1 Zynq7000和USB芯片间连接示意图</p>
+<p>图3-5-2为USB2.0芯片和接口的实物图。</p>
+<a class="reference internal image-reference" href="../_images/image2528.png"><img alt="../_images/image2528.png" src="../_images/image2528.png" style="width: 1.97917in; height: 2.76042in;" /></a>
+<p>图3-5-2 USB2.0部分的实物图</p>
+<p><strong>USB2.0引脚分配：</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>ZY
+NQ引脚名</strong></p></td>
+<td><p><strong>ZY
+NQ引脚号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>OTG_DATA4</p></td>
+<td><p>PS_MIO28</p></td>
+<td><p>C16</p></td>
+<td><p>USB数据Bit4</p></td>
+</tr>
+<tr class="row-odd"><td><p>OTG_DIR</p></td>
+<td><p>PS_MIO29</p></td>
+<td><p>C13</p></td>
+<td><p>USB数据方向信号</p></td>
+</tr>
+<tr class="row-even"><td><p>OTG_STP</p></td>
+<td><p>PS_MIO30</p></td>
+<td><p>C15</p></td>
+<td><p>USB停止信号</p></td>
+</tr>
+<tr class="row-odd"><td><p>OTG_NXT</p></td>
+<td><p>PS_MIO31</p></td>
+<td><p>E16</p></td>
+<td><p>USB下一数据信号</p></td>
+</tr>
+<tr class="row-even"><td><p>OTG_DATA0</p></td>
+<td><p>PS_MIO32</p></td>
+<td><p>A14</p></td>
+<td><p>USB数据Bit0</p></td>
+</tr>
+<tr class="row-odd"><td><p>OTG_DATA1</p></td>
+<td><p>PS_MIO33</p></td>
+<td><p>D15</p></td>
+<td><p>USB数据Bit1</p></td>
+</tr>
+<tr class="row-even"><td><p>OTG_DATA2</p></td>
+<td><p>PS_MIO34</p></td>
+<td><p>A12</p></td>
+<td><p>USB数据Bit2</p></td>
+</tr>
+<tr class="row-odd"><td><p>OTG_DATA3</p></td>
+<td><p>PS_MIO35</p></td>
+<td><p>F12</p></td>
+<td><p>USB数据Bit3</p></td>
+</tr>
+<tr class="row-even"><td><p>OTG_CLK</p></td>
+<td><p>PS_MIO36</p></td>
+<td><p>A11</p></td>
+<td><p>USB时钟信号</p></td>
+</tr>
+<tr class="row-odd"><td><p>OTG_DATA5</p></td>
+<td><p>PS_MIO37</p></td>
+<td><p>A10</p></td>
+<td><p>USB数据Bit5</p></td>
+</tr>
+<tr class="row-even"><td><p>OTG_DATA6</p></td>
+<td><p>PS_MIO38</p></td>
+<td><p>E13</p></td>
+<td><p>USB数据Bit6</p></td>
+</tr>
+<tr class="row-odd"><td><p>OTG_DATA7</p></td>
+<td><p>PS_MIO39</p></td>
+<td><p>C18</p></td>
+<td><p>USB数据Bit7</p></td>
+</tr>
+<tr class="row-even"><td><p>OTG_RESETN</p></td>
+<td><p>PS_MIO46</p></td>
+<td><p>D16</p></td>
+<td><p>USB复位信号</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="usb">
+<h2>USB转串口<a class="headerlink" href="#usb" title="此标题的永久链接">#</a></h2>
+<p>AX7Z020底板上配有一个USB转Uart接口，用于ZYNQ7000系统的整体调试，
+转换芯片采用Silicon Labs CP2102GM的USB-UAR芯片, USB接口采用MINI
+USB接口，可以用一根USB线将它连接到上PC的USB口进行核心板的单独供电和串口数据通信
+。</p>
+<p>USB Uart电路设计的示意图如下图3-6-1所示:</p>
+<img alt="../_images/image2625.png" src="../_images/image2625.png" />
+<p>3-6-1 USB转串口示意图</p>
+<p>下图3-6-2为USB转串口的实物图</p>
+<a class="reference internal image-reference" href="../_images/image2725.png"><img alt="../_images/image2725.png" src="../_images/image2725.png" style="width: 1.5625in; height: 2.17708in;" /></a>
+<p>3-6-2 USB转串口实物图</p>
+<p><strong>UART转串口的ZYNQ引脚分配：</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>ZY
+NQ引脚名</strong></p></td>
+<td><p><strong>ZY
+NQ引脚号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>UART_RX</p></td>
+<td><p>PS_MIO49</p></td>
+<td><p>C12</p></td>
+<td><p>Uart数据输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>UART_TX</p></td>
+<td><p>PS_MIO48</p></td>
+<td><p>B12</p></td>
+<td><p>Uart数据输出</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ad">
+<h2>AD输入接口<a class="headerlink" href="#ad" title="此标题的永久链接">#</a></h2>
+<p>AX7Z020底板上配有4路AD输入接口，其中2路用于采集外部模拟信号进行AD转换，另外2路用于测量开发板的电源电压和电流。
+用于采集外部模拟信号进行AD转换的2路模拟信号选用SMA接头作为输入，将输入的信号转换为差分信号后输入ZYNQ。电源电流测量连接到ZYNQ的专用AD输入管脚VP和VN。</p>
+<p>AD采集电路设计的示意图如下图3-7-1所示:</p>
+<img alt="../_images/image2822.png" src="../_images/image2822.png" />
+<p>图3-7-1 AD采集电路设计的示意图</p>
+<p>下图3-7-2为AD采集电路接口的实物图</p>
+<a class="reference internal image-reference" href="../_images/image2920.png"><img alt="../_images/image2920.png" src="../_images/image2920.png" style="width: 3.98889in; height: 2.44792in;" /></a>
+<p>图3-7-2 AD采集电路接口的实物图</p>
+<p><strong>AD采集电路的ZYNQ引脚分配：</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>ZY
+NQ引脚名</strong></p></td>
+<td><p><strong>ZY
+NQ引脚号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>XADC_AD1P</p></td>
+<td><p>IO35_L3P</p></td>
+<td><p>E17</p></td>
+<td><p>AD_IN_P</p></td>
+</tr>
+<tr class="row-odd"><td><p>XADC_AD1N</p></td>
+<td><p>IO35_L3N</p></td>
+<td><p>D18</p></td>
+<td><p>AD_IN_N</p></td>
+</tr>
+<tr class="row-even"><td><p>XADC_AD9P</p></td>
+<td><p>IO35_L5P</p></td>
+<td><p>E18</p></td>
+<td><p>AD_IN_P</p></td>
+</tr>
+<tr class="row-odd"><td><p>XADC_AD9N</p></td>
+<td><p>IO35_L5N</p></td>
+<td><p>E19</p></td>
+<td><p>AD_IN_N</p></td>
+</tr>
+<tr class="row-even"><td><p>XADC_AD12P</p></td>
+<td><p>IO35_L15P</p></td>
+<td><p>F19</p></td>
+<td><p>AD_IN_P</p></td>
+</tr>
+<tr class="row-odd"><td><p>XADC_AD12N</p></td>
+<td><p>IO35_L15N</p></td>
+<td><p>F20</p></td>
+<td><p>AD_IN_N</p></td>
+</tr>
+<tr class="row-even"><td><p>VP</p></td>
+<td><p>VP</p></td>
+<td><p>K9</p></td>
+<td><p>AD_IN_P</p></td>
+</tr>
+<tr class="row-odd"><td><p>VN</p></td>
+<td><p>VN</p></td>
+<td><p>L10</p></td>
+<td><p>AD_IN_N</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hdmi">
+<h2>HDMI输出接口<a class="headerlink" href="#hdmi" title="此标题的永久链接">#</a></h2>
+<p>HDMI，全称为高清晰度多媒体视频输出接口。AX7Z020开发板上通过ZYNQ的差分IO直接连接到HDMI接口的差分信号和时钟，在ZYNQ内部实现HMDI信号的差分转并行再进行编解码，实现DMI数字视频输入和输出的传输解决方案，最高支持1080P&#64;60Hz的输入和输出的功能。</p>
+<p>HDMI的信号连接到ZYNQ的PL部分的BANK34上,设计原理图如下图3-8-1所示：</p>
+<a class="reference internal image-reference" href="../_images/image3017.png"><img alt="../_images/image3017.png" src="../_images/image3017.png" style="width: 6.76528in; height: 3.27778in;" /></a>
+<p>图3-8-1 HDMI接口设计原理图</p>
+<p>图3-8-2为HDMI接口的实物图，</p>
+<a class="reference internal image-reference" href="../_images/image3141.png"><img alt="../_images/image3141.png" src="../_images/image3141.png" style="width: 3.42639in; height: 3.82222in;" /></a>
+<p>图3-8-2 HDMI接口实物图</p>
+<p><strong>ZYNQ的引脚分配：</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>ZY
+NQ引脚名</strong></p></td>
+<td><p><strong>ZY
+NQ引脚号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>HDMI_CLK_P</p></td>
+<td><p>IO34_L3P</p></td>
+<td><p>U13</p></td>
+<td><p>HDMI时钟信号正</p></td>
+</tr>
+<tr class="row-odd"><td><p>HDMI_CLK_N</p></td>
+<td><p>IO34_L3N</p></td>
+<td><p>V13</p></td>
+<td><p>HDMI时钟信号负</p></td>
+</tr>
+<tr class="row-even"><td><p>HDMI_D0_P</p></td>
+<td><p>IO34_L8P</p></td>
+<td><p>W14</p></td>
+<td><p>HDMI数据0正</p></td>
+</tr>
+<tr class="row-odd"><td><p>HDMI_D0_N</p></td>
+<td><p>IO34_L8N</p></td>
+<td><p>Y14</p></td>
+<td><p>HDMI数据0负</p></td>
+</tr>
+<tr class="row-even"><td><p>HDMI_D1_P</p></td>
+<td><p>IO34_L17P</p></td>
+<td><p>Y18</p></td>
+<td><p>HDMI数据1正</p></td>
+</tr>
+<tr class="row-odd"><td><p>HDMI_D1_N</p></td>
+<td><p>IO34_L17N</p></td>
+<td><p>Y19</p></td>
+<td><p>HDMI数据1负</p></td>
+</tr>
+<tr class="row-even"><td><p>HDMI_D2_P</p></td>
+<td><p>IO34_L7P</p></td>
+<td><p>Y16</p></td>
+<td><p>HDMI数据2正</p></td>
+</tr>
+<tr class="row-odd"><td><p>HDMI_D2_N</p></td>
+<td><p>IO34_L7N</p></td>
+<td><p>Y17</p></td>
+<td><p>HDMI数据2负</p></td>
+</tr>
+<tr class="row-even"><td><p>HDMI_SCL</p></td>
+<td><p>IO34_L21N</p></td>
+<td><p>V18</p></td>
+<td><p>HDMI IIC时钟</p></td>
+</tr>
+<tr class="row-odd"><td><p>HDMI_SDA</p></td>
+<td><p>IO34_L21P</p></td>
+<td><p>V17</p></td>
+<td><p>HDMI IIC数据</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mipi">
+<h2>MIPI摄像头接口<a class="headerlink" href="#mipi" title="此标题的永久链接">#</a></h2>
+<p>AX7Z020底板上包含了一个MIPI摄像头接口，可以用来接我们的MIPI
+OV5640摄像头模块。MIPI接口部分的电路原理图如下图3-9-1 所示：</p>
+<a class="reference internal image-reference" href="../_images/image3221.png"><img alt="../_images/image3221.png" src="../_images/image3221.png" style="width: 5.72569in; height: 3.85694in;" /></a>
+<p>图3-9-1 MIPI接口设计原理图</p>
+<p>图3-9-2 为MIPI摄像头接口的实物图：</p>
+<a class="reference internal image-reference" href="../_images/image3320.png"><img alt="../_images/image3320.png" src="../_images/image3320.png" style="width: 1.10417in; height: 2.36458in;" /></a>
+<p>图3-9-1 HMIPI接口设计原理图</p>
+<p>MIPI接口引脚分配</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>ZY
+NQ引脚名</strong></p></td>
+<td><p><strong>ZY
+NQ引脚号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>LP_CLK_P</p></td>
+<td><p>IO13_L15P</p></td>
+<td><p>V8</p></td>
+<td><p>Low Power模式的时钟正</p></td>
+</tr>
+<tr class="row-odd"><td><p>LP_CLK_N</p></td>
+<td><p>IO13_L15N</p></td>
+<td><p>W8</p></td>
+<td><p>Low Power模式的时钟负</p></td>
+</tr>
+<tr class="row-even"><td><p>LP_LANE0_P</p></td>
+<td><p>IO13_L12P</p></td>
+<td><p>T9</p></td>
+<td><p>Low Power模式的LANE0正</p></td>
+</tr>
+<tr class="row-odd"><td><p>LP_LANE0_N</p></td>
+<td><p>IO13_L12N</p></td>
+<td><p>U10</p></td>
+<td><p>Low Power模式的LANE0负</p></td>
+</tr>
+<tr class="row-even"><td><p>LP_LANE1_P</p></td>
+<td><p>IO13_L20P</p></td>
+<td><p>Y12</p></td>
+<td><p>Low Power模式的LANE1正</p></td>
+</tr>
+<tr class="row-odd"><td><p>LP_LANE1_N</p></td>
+<td><p>IO13_L20N</p></td>
+<td><p>Y13</p></td>
+<td><p>Low Power模式的LANE1负</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI_CLK_P</p></td>
+<td><p>IO13_L13P</p></td>
+<td><p>Y7</p></td>
+<td><p>High Speed模式的时钟正</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI_CLK_N</p></td>
+<td><p>IO13_L13N</p></td>
+<td><p>Y6</p></td>
+<td><p>High Speed模式的时钟负</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI_LAN0_P</p></td>
+<td><p>IO13_L18P</p></td>
+<td><p>W11</p></td>
+<td><p>High Speed模式的LANE0正</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI_LAN0_N</p></td>
+<td><p>IO13_L18N</p></td>
+<td><p>Y11</p></td>
+<td><p>High Speed模式的LANE0负</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI_LAN1_P</p></td>
+<td><p>IO13_L17P</p></td>
+<td><p>U9</p></td>
+<td><p>High Speed模式的LANE1正</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI_LAN1_N</p></td>
+<td><p>IO13_L17N</p></td>
+<td><p>U8</p></td>
+<td><p>High Speed模式的LANE1负</p></td>
+</tr>
+<tr class="row-even"><td><p>CAM_GPIO</p></td>
+<td><p>IO13_L11P</p></td>
+<td><p>U7</p></td>
+<td><p>摄像头的GPIO控制</p></td>
+</tr>
+<tr class="row-odd"><td><p>CAM_CLK</p></td>
+<td><p>IO13_L11N</p></td>
+<td><p>V7</p></td>
+<td><p>摄像头的时钟输入</p></td>
+</tr>
+<tr class="row-even"><td><p>CAM_SCL</p></td>
+<td><p>IO13_L19P</p></td>
+<td><p>T5</p></td>
+<td><p>摄像头的I2C时钟</p></td>
+</tr>
+<tr class="row-odd"><td><p>CAM_SDA</p></td>
+<td><p>IO13_L19N</p></td>
+<td><p>U5</p></td>
+<td><p>摄像头的I2C数据</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sd">
+<h2>SD卡槽<a class="headerlink" href="#sd" title="此标题的永久链接">#</a></h2>
+<p>AX7Z020底板包含了一个Micro型的SD卡接口，以提供用户访问SD卡存储器，用于存储ZYNQ芯片的BOOT程序，Linux操作系统内核,
+文件系统以及其它的用户数据文件。</p>
+<p>SDIO信号与ZYNQ的PS
+BANK501的IO信号相连，因为该BANK的VCCMIO设置为1.8V，但SD卡的数据电平为3.3V,
+我们这里通过TXS02612电平转换器来连接。Zynq7000
+PS和SD卡连接器的原理图如图3-6-1所示。</p>
+<a class="reference internal image-reference" href="../_images/image3419.png"><img alt="../_images/image3419.png" src="../_images/image3419.png" style="width: 5.89306in; height: 2.74097in;" /></a>
+<p>图3-10-1 SD卡连接示意图</p>
+<p>图3-10-2 为开发板上SD卡槽实物图</p>
+<a class="reference internal image-reference" href="../_images/image3518.png"><img alt="../_images/image3518.png" src="../_images/image3518.png" style="width: 1.38542in; height: 1.71875in;" /></a>
+<p>图3-10-2 SD卡槽实物图</p>
+<p><strong>SD卡槽引脚分配</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>ZY
+NQ引脚名</strong></p></td>
+<td><p><strong>ZY
+NQ引脚号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>SD_CLK</p></td>
+<td><p>PS_MIO40</p></td>
+<td><p>D14</p></td>
+<td><p>SD时钟信号</p></td>
+</tr>
+<tr class="row-odd"><td><p>SD_CMD</p></td>
+<td><p>PS_MIO41</p></td>
+<td><p>C17</p></td>
+<td><p>SD命令信号</p></td>
+</tr>
+<tr class="row-even"><td><p>SD_D0</p></td>
+<td><p>PS_MIO42</p></td>
+<td><p>E12</p></td>
+<td><p>SD数据Data0</p></td>
+</tr>
+<tr class="row-odd"><td><p>SD_D1</p></td>
+<td><p>PS_MIO43</p></td>
+<td><p>A9</p></td>
+<td><p>SD数据Data1</p></td>
+</tr>
+<tr class="row-even"><td><p>SD_D2</p></td>
+<td><p>PS_MIO44</p></td>
+<td><p>F13</p></td>
+<td><p>SD数据Data2</p></td>
+</tr>
+<tr class="row-odd"><td><p>SD_D3</p></td>
+<td><p>PS_MIO45</p></td>
+<td><p>B15</p></td>
+<td><p>SD数据Data3</p></td>
+</tr>
+<tr class="row-even"><td><p>SD_CD</p></td>
+<td><p>PS_MIO47</p></td>
+<td><p>B14</p></td>
+<td><p>SD卡插入信号</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eeprom">
+<h2>EEPROM<a class="headerlink" href="#eeprom" title="此标题的永久链接">#</a></h2>
+<p>AX7Z020开发板板载了一片EEPROM。EEPROM的型号为24LC04,容量为：4Kbit（2*256*8bit），由2个256byte的block组成,通过IIC总线进行通信。板载EEPROM就是为了学习IIC总线的通信方式。EEPROM的I2C信号连接的ZYNQ
+PS端的I2C接口上。图3-11-1为EEPROM的连接示意图</p>
+<img alt="../_images/image3616.png" src="../_images/image3616.png" />
+<p>图7-5 EEPROM连接示意图</p>
+<p>图3-11-2为EEPROM实物图</p>
+<a class="reference internal image-reference" href="../_images/image3716.png"><img alt="../_images/image3716.png" src="../_images/image3716.png" style="width: 2.45208in; height: 2.54792in;" /></a>
+<p>图3-11-2 EEPROM实物图</p>
+<p><strong>EEPROM引脚分配：</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>ZYNQ引脚名</strong></p></td>
+<td><p><strong>ZYN
+Q引脚号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>I2C_SCL_1V8</p></td>
+<td><p>MIO50</p></td>
+<td><p>B13</p></td>
+<td><p>IIC时钟信号</p></td>
+</tr>
+<tr class="row-odd"><td><p>I2C_SDA_1V8</p></td>
+<td><p>MIO51</p></td>
+<td><p>B9</p></td>
+<td><p>IIC数据信号</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id12">
+<h2>实时时钟<a class="headerlink" href="#id12" title="此标题的永久链接">#</a></h2>
+<p>开发板板载了一片实时时钟RTC芯片，型号DS1338，他的功能是提供到2099年内的日历功能，年月日时分秒还有星期。如果系统中需要时间的话，那么RTC就需要涉及到产品中。他外部需要接一个32.768KHz的无源时钟，提供精确的时钟源给时钟芯片，这样才能让RTC可以准确的提供时钟信息给产品。同时为了产品掉电以后，实时时钟还可以正常运行，一般需要另外配一个电池给时钟芯片供电，图3-12-2中为BT1为电池座，我们将纽扣电池（型号CR1220，电压为3V）放入以后，当系统掉电池，纽扣电池还可以给DS1338供电，这样，不管产品是否供电，DS1302都会正常运行，不会间断，可以提供持续不断的时间信息。RTC的接口信号跟EEPORM是共用I2C总线。图3-12-1为DS1338连接示意图</p>
+<img alt="../_images/image3816.png" src="../_images/image3816.png" />
+<p>图3-12-1 DS1338原理图</p>
+<p>图3-12-2为DS1338实物图</p>
+<a class="reference internal image-reference" href="../_images/image3915.png"><img alt="../_images/image3915.png" src="../_images/image3915.png" style="width: 4.95764in; height: 2.55208in;" /></a>
+<p>图3-12-2 DS1302实物图</p>
+<p><strong>DS1338接口引脚分配：</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>ZYNQ引脚名</strong></p></td>
+<td><p><strong>Z
+YNQ引脚号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>I2C_SCL_1V8</p></td>
+<td><p>MIO50</p></td>
+<td><p>B13</p></td>
+<td><p>RTC的时钟信号</p></td>
+</tr>
+<tr class="row-odd"><td><p>I2C_SDA_1V8</p></td>
+<td><p>MIO51</p></td>
+<td><p>B9</p></td>
+<td><p>RTC的复位信号</p></td>
+</tr>
+<tr class="row-even"><td><p>RTC_SQW</p></td>
+<td><p>MIO7</p></td>
+<td><p>D8</p></td>
+<td><p>方波输出信号</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id13">
+<h2>温度传感器<a class="headerlink" href="#id13" title="此标题的永久链接">#</a></h2>
+<p>AX7Z020开发板上安装了一个高精度、低功耗、数字温度传感器芯片，型号为ON
+Semiconductor公司的LM75。LM75芯片的温度精度为0.5度,传感器和FPGA直接为I2C数字接口，
+ZYNQ7020通过I2C接口来读取当前开发板附近的温度。LM75传感器的接口信号跟EEPORM是共用I2C总线，下图3-13-1为LM75传感器连接示意图</p>
+<img alt="../_images/image4011.png" src="../_images/image4011.png" />
+<p>图3-13-1 LM75传感器连接示意图</p>
+<p>下图为LM75传感器实物图</p>
+<a class="reference internal image-reference" href="../_images/image4116.png"><img alt="../_images/image4116.png" src="../_images/image4116.png" style="width: 1.70833in; height: 1.69792in;" /></a>
+<p>图3-13-2 LM75传感器实物图</p>
+</section>
+<section id="jtag">
+<h2>JTAG接口<a class="headerlink" href="#jtag" title="此标题的永久链接">#</a></h2>
+<p>在AX7Z020底板上预留了JTAG的下载调试电路，将
+ZYNQ的JTAG调试信号TCK,TDO,TMS,TDI引出。图3-14-1为开发板上JTAG口的原理图部分：</p>
+<a class="reference internal image-reference" href="../_images/image4217.png"><img alt="../_images/image4217.png" src="../_images/image4217.png" style="width: 4.76042in; height: 2.63819in;" /></a>
+<p>图3-14-1 原理图中JTAG接口部分</p>
+<p>在AX7Z020开发板上，JTAG接口的实物图如下图3-14-2，用户可以通过我们的下载器进行ZYNQ的系统调试。</p>
+<a class="reference internal image-reference" href="../_images/image4315.png"><img alt="../_images/image4315.png" src="../_images/image4315.png" style="width: 2.07292in; height: 1.21875in;" /></a>
+<p>图3-14-2 JTAG接口实物图</p>
+</section>
+<section id="led">
+<h2>用户LED灯<a class="headerlink" href="#led" title="此标题的永久链接">#</a></h2>
+<p>AX7Z020底板上有4个用户LED灯（LED1~LED4）。4个用户LED灯均连接到PL端BANK35的IO上，用户可以通过程序来控制亮和灭，当连接用户LED灯的IO电压为高时，用户LED灯熄灭，当连接IO电压为低时，用户LED会被点亮。LED灯硬件连接的示意图如图3-15-1所示：</p>
+<img alt="../_images/image4413.png" src="../_images/image4413.png" />
+<p>图3-15-1 底板LED灯硬件连接示意图</p>
+<p>图3-15-2 为底板上的LED灯实物图</p>
+<a class="reference internal image-reference" href="../_images/image4513.png"><img alt="../_images/image4513.png" src="../_images/image4513.png" style="width: 4.32222in; height: 0.9375in;" /></a>
+<p>图3-15-2 底板的LED灯实物图</p>
+<p><strong>底板用户LED灯的引脚分配</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>ZYNQ引脚名</strong></p></td>
+<td><p><strong>ZY
+NQ管脚号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>LED1</p></td>
+<td><p>IO35_L20N</p></td>
+<td><p>J14</p></td>
+<td><p>用户LED1灯</p></td>
+</tr>
+<tr class="row-odd"><td><p>LED2</p></td>
+<td><p>IO35_L20P</p></td>
+<td><p>K14</p></td>
+<td><p>用户LED2灯</p></td>
+</tr>
+<tr class="row-even"><td><p>LED3</p></td>
+<td><p>IO35_L14P</p></td>
+<td><p>J18</p></td>
+<td><p>用户LED3灯</p></td>
+</tr>
+<tr class="row-odd"><td><p>LED4</p></td>
+<td><p>IO35_L14N</p></td>
+<td><p>H18</p></td>
+<td><p>用户LED4灯</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id14">
+<h2>用户按键<a class="headerlink" href="#id14" title="此标题的永久链接">#</a></h2>
+<p>AX7Z020底板上有4个用户按键KEY1~KEY4，4个用户KEY均连接到PL端BANK35的IO上。按键按下，信号为低，ZYNQ芯片就是检测到低电平来判断按键是否按下。用户按键连接的示意图如图3-16-1所示：</p>
+<img alt="../_images/image4612.png" src="../_images/image4612.png" />
+<p>图3-16-1 用户按键连接示意图</p>
+<p>图3-16-2 为用户按键在底板的实物图</p>
+<a class="reference internal image-reference" href="../_images/image4711.png"><img alt="../_images/image4711.png" src="../_images/image4711.png" style="width: 4.15556in; height: 1.09375in;" /></a>
+<p>图2-16-2 用户按键实物图</p>
+<p><strong>用户按键的ZYNQ管脚分配</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>ZY
+NQ引脚名</strong></p></td>
+<td><p><strong>ZY
+NQ引脚号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>KEY1</p></td>
+<td><p>IO35_L23N</p></td>
+<td><p>M15</p></td>
+<td><p>用户按键KEY1</p></td>
+</tr>
+<tr class="row-odd"><td><p>KEY2</p></td>
+<td><p>IO35_L23P</p></td>
+<td><p>M14</p></td>
+<td><p>用户按键KEY2</p></td>
+</tr>
+<tr class="row-even"><td><p>KEY3</p></td>
+<td><p>IO35_L11N</p></td>
+<td><p>L17</p></td>
+<td><p>用户按键KEY3</p></td>
+</tr>
+<tr class="row-odd"><td><p>KEY4</p></td>
+<td><p>IO35_L11P</p></td>
+<td><p>L16</p></td>
+<td><p>用户按键KEY4</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id15">
+<h2>扩展口<a class="headerlink" href="#id15" title="此标题的永久链接">#</a></h2>
+<p>AX7Z020底板预留了2个2.54mm标准间距的40针的扩展口J20和J21，用于连接黑金的各个模块或者用户自己设计的外面电路，扩展口有40个信号，其中，5V电源1路，3.3V电源2路，地3路，IO口34路。<strong>切勿IO直接跟5V设备直接连接，以免烧坏ZYNQ7000芯片。如果要接5V设备，需要接电平转换芯片。</strong></p>
+<p>扩展口(J20)的电路如下图3-17-1所示</p>
+<a class="reference internal image-reference" href="../_images/image4811.png"><img alt="../_images/image4811.png" src="../_images/image4811.png" style="width: 5.86389in; height: 2.48958in;" /></a>
+<p>图3-17-1扩展口J20原理图</p>
+<p>下图为J20扩展口实物图，扩展口的Pin1,2,39, 40已经在板上标示出。</p>
+<a class="reference internal image-reference" href="../_images/image4910.png"><img alt="../_images/image4910.png" src="../_images/image4910.png" style="width: 6.19097in; height: 1.29931in;" /></a>
+<p>图3-17-2扩展口J20实物图</p>
+<p><strong>J20扩展口ZYNQ的引脚分配</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>引脚编号</strong></p></td>
+<td><p><strong>ZYNQ引脚</strong></p></td>
+<td><p><strong>引脚编号</strong></p></td>
+<td><p><strong>ZYNQ引脚</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td><p>GND</p></td>
+<td><p><strong>2</strong></p></td>
+<td><p>+5V</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>3</strong></p></td>
+<td><p>R14</p></td>
+<td><p><strong>4</strong></p></td>
+<td><p>P14</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td><p>U12</p></td>
+<td><p><strong>6</strong></p></td>
+<td><p>T12</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>7</strong></p></td>
+<td><p>T15</p></td>
+<td><p><strong>8</strong></p></td>
+<td><p>T14</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td><p>T11</p></td>
+<td><p><strong>10</strong></p></td>
+<td><p>T10</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>11</strong></p></td>
+<td><p>U15</p></td>
+<td><p><strong>12</strong></p></td>
+<td><p>U14</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td><p>P19</p></td>
+<td><p><strong>14</strong></p></td>
+<td><p>N18</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>15</strong></p></td>
+<td><p>R17</p></td>
+<td><p><strong>16</strong></p></td>
+<td><p>R16</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>17</strong></p></td>
+<td><p>P15</p></td>
+<td><p><strong>18</strong></p></td>
+<td><p>P16</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>19</strong></p></td>
+<td><p>N17</p></td>
+<td><p><strong>20</strong></p></td>
+<td><p>P18</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>21</strong></p></td>
+<td><p>V16</p></td>
+<td><p><strong>22</strong></p></td>
+<td><p>W16</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>23</strong></p></td>
+<td><p>R18</p></td>
+<td><p><strong>24</strong></p></td>
+<td><p>T17</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>25</strong></p></td>
+<td><p>W19</p></td>
+<td><p><strong>26</strong></p></td>
+<td><p>W18</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>27</strong></p></td>
+<td><p>W20</p></td>
+<td><p><strong>28</strong></p></td>
+<td><p>V20</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>29</strong></p></td>
+<td><p>P20</p></td>
+<td><p><strong>30</strong></p></td>
+<td><p>N20</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>31</strong></p></td>
+<td><p>U17</p></td>
+<td><p><strong>32</strong></p></td>
+<td><p>T16</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>33</strong></p></td>
+<td><p>U20</p></td>
+<td><p><strong>34</strong></p></td>
+<td><p>T20</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>35</strong></p></td>
+<td><p>V15</p></td>
+<td><p><strong>36</strong></p></td>
+<td><p>W15</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>37</strong></p></td>
+<td><p>GND</p></td>
+<td><p><strong>38</strong></p></td>
+<td><p>GND</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>39</strong></p></td>
+<td><p>+3.3V</p></td>
+<td><p><strong>40</strong></p></td>
+<td><p>+3.3V</p></td>
+</tr>
+</tbody>
+</table>
+<p>扩展口(J21)的电路如下图3-17-3所示</p>
+<a class="reference internal image-reference" href="../_images/image505.png"><img alt="../_images/image505.png" src="../_images/image505.png" style="width: 5.91597in; height: 2.47917in;" /></a>
+<p>图3-17-3扩展口J21原理图</p>
+<p>下图为J21扩展口实物图，扩展口的Pin1, 2,39,40已经在板上标示出。</p>
+<a class="reference internal image-reference" href="../_images/image5111.png"><img alt="../_images/image5111.png" src="../_images/image5111.png" style="width: 5.42778in; height: 1.41181in;" /></a>
+<p>图3-17-4扩展口J21实物图</p>
+<p><strong>J21扩展口ZYNQ的引脚分配</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>引脚编号</strong></p></td>
+<td><p><strong>ZYNQ引脚</strong></p></td>
+<td><p><strong>引脚编号</strong></p></td>
+<td><p><strong>ZYNQ引脚</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1</strong></p></td>
+<td><p>GND</p></td>
+<td><p><strong>2</strong></p></td>
+<td><p>+5V</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>3</strong></p></td>
+<td><p>M18</p></td>
+<td><p><strong>4</strong></p></td>
+<td><p>M17</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5</strong></p></td>
+<td><p>K19</p></td>
+<td><p><strong>6</strong></p></td>
+<td><p>J19</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>7</strong></p></td>
+<td><p>B19</p></td>
+<td><p><strong>8</strong></p></td>
+<td><p>A20</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>9</strong></p></td>
+<td><p>B20</p></td>
+<td><p><strong>10</strong></p></td>
+<td><p>C20</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>11</strong></p></td>
+<td><p>G19</p></td>
+<td><p><strong>12</strong></p></td>
+<td><p>G20</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>13</strong></p></td>
+<td><p>M19</p></td>
+<td><p><strong>14</strong></p></td>
+<td><p>M20</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>15</strong></p></td>
+<td><p>D20</p></td>
+<td><p><strong>16</strong></p></td>
+<td><p>D19</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>17</strong></p></td>
+<td><p>L20</p></td>
+<td><p><strong>18</strong></p></td>
+<td><p>L19</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>19</strong></p></td>
+<td><p>F16</p></td>
+<td><p><strong>20</strong></p></td>
+<td><p>F17</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>21</strong></p></td>
+<td><p>H20</p></td>
+<td><p><strong>22</strong></p></td>
+<td><p>J20</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>23</strong></p></td>
+<td><p>G18</p></td>
+<td><p><strong>24</strong></p></td>
+<td><p>G17</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>25</strong></p></td>
+<td><p>H17</p></td>
+<td><p><strong>26</strong></p></td>
+<td><p>H16</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>27</strong></p></td>
+<td><p>G15</p></td>
+<td><p><strong>28</strong></p></td>
+<td><p>H15</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>29</strong></p></td>
+<td><p>K18</p></td>
+<td><p><strong>30</strong></p></td>
+<td><p>K17</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>31</strong></p></td>
+<td><p>J16</p></td>
+<td><p><strong>32</strong></p></td>
+<td><p>K16</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>33</strong></p></td>
+<td><p>N16</p></td>
+<td><p><strong>34</strong></p></td>
+<td><p>N15</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>35</strong></p></td>
+<td><p>L15</p></td>
+<td><p><strong>36</strong></p></td>
+<td><p>L14</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>37</strong></p></td>
+<td><p>GND</p></td>
+<td><p><strong>38</strong></p></td>
+<td><p>GND</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>39</strong></p></td>
+<td><p>+3.3V</p></td>
+<td><p><strong>40</strong></p></td>
+<td><p>+3.3V</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id16">
+<h2>供电电源<a class="headerlink" href="#id16" title="此标题的永久链接">#</a></h2>
+<p>开发板的电源输入电压为DC5V，请使用开发板自带的电源,不要用其他规格的电源，以免损坏开发板。底板上通过2路DC/DC电源芯片TLV62130RGT和1路LDO电源芯片SPX3819M5-ADJ转换成1.8V，+3.3V和VCCIO35三路电源。VCCIO35默认输出是3.3V，可以通过跳帽的链接来改变VCCIO35的输出，使其变为2.5V或者1.8V。</p>
+<p>扩展上的电源设计如下图3-18-1所示:</p>
+<a class="reference internal image-reference" href="../_images/image5211.png"><img alt="../_images/image5211.png" src="../_images/image5211.png" style="width: 6.45764in; height: 3.35833in;" /></a>
+<p>图3-18-1底板电源原理图</p>
+<p>ZYNQ7020的BANK35的IO的电平可以由底板的跳线帽来调整电压，默认如果J28，J29没有安装跳线帽，BANK35的IO电平是3.3V的。如果J29安装了跳线帽，BANK35的IO电平是1.8V。如果J28安装了跳线帽，BANK35的IO电平是2.5V。</p>
+<a class="reference internal image-reference" href="../_images/image5311.png"><img alt="../_images/image5311.png" src="../_images/image5311.png" style="width: 5.14028in; height: 3.69444in;" /></a>
+<p>图3-18-2 VCCIO35的电压调整</p>
+</section>
+<section id="id17">
+<h2>底板结构图<a class="headerlink" href="#id17" title="此标题的永久链接">#</a></h2>
+<a class="reference internal image-reference" href="../_images/image5411.png"><img alt="../_images/image5411.png" src="../_images/image5411.png" style="width: 5.60347in; height: 4.98889in;" /></a>
+<p>正面图（Top View）</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../7Z020B_S1_RSTdocument_CN/00_%E6%96%87%E6%A1%A3%E7%89%88%E6%9C%AC%E5%B1%A5%E5%8E%86_CN.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">上一页</p>
+        <p class="prev-next-title">文档版本履历</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../7Z020B_S1_RSTdocument_CN/01_%E8%BD%AF%E4%BB%B6%E5%8C%85%E8%AF%B4%E6%98%8E%E5%92%8C%E5%BC%80%E5%8F%91%E6%9D%BF%E6%A3%80%E6%B5%8B_CN.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">软件包说明和开发板检测</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">开发板简介</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ac7z020">AC7Z020核心板</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">简介</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zynq">ZYNQ芯片</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ddr3-dram">DDR3 DRAM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qspi-flash">QSPI Flash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">时钟配置</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">电源</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">结构图</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">连接器管脚定义</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">扩展板</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">简介</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#can">CAN通信接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">485通信接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">千兆以太网接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usb2-0-host">USB2.0 Host接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usb">USB转串口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ad">AD输入接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hdmi">HDMI输出接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mipi">MIPI摄像头接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sd">SD卡槽</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eeprom">EEPROM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">实时时钟</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">温度传感器</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jtag">JTAG接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#led">用户LED灯</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">用户按键</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">扩展口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">供电电源</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">底板结构图</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： JunFN
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024 , ALINX .
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        These engineering documents are copyrighted by
+            <a
+                href="https://www.alinx.com/"
+            >ALINX official website</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://www.en.alinx.com/">English</a> | <a href="https://ax7z020b-20231-v101.readthedocs.io/zh-cn/latest/7Z020B_S1_RSTdocument_CN/00_%E5%85%B3%E4%BA%8EALINX_CN.html">中文</a>
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
